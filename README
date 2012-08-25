@@ -1,0 +1,73 @@
+
+==========================================================================================
+                       RELEASE		
+==========================================================================================
+
+The current release is TMXlib 0.1
+
+==========================================================================================
+                      INSTALLATION
+==========================================================================================
+The basic installation procedure must be done in a separatly folder in order to keep
+your file tree clean.
+
+1) mkdir build
+2) cd build
+3) cmake ..
+4) make
+6) Congratulation, TMXLib is installed !
+
+Please refer to TMXLib website or INSTALL file for further information about
+installation types and options.
+
+==========================================================================================
+                       DIRECTORY STRUCTURE
+==========================================================================================
+After unpacking the archive file, you should end up with the following
+structure:
+
+.../                        
+   |
+   |
+   +-- AUTHORS				      Authors list 
+   |
+   |
+   +-- cmake/				      CMake dir
+   |
+   |
+   +-- CMakeLists.txt			  For building process
+   |
+   |
+   +-- doc                        For doxygen
+   |
+   |
+   +-- examples                   Some examples of use
+   |
+   |
+   +-- INSTALL                    INSTALL file
+   |
+   |
+   +-- include                    Include files
+   |
+   |
+   +-- LICENCE				      Licence contents
+   |
+   |
+   +-- src 			              Sources
+   |
+   |
+   +-- README				      README file
+
+==========================================================================================
+              NOTES
+==========================================================================================
+
+Nothing at the moment ! :D
+
+==========================================================================================
+              CONTACT
+==========================================================================================
+
+For further information about TMXlib, help or to report any
+problem : alexandre.quemy@gmail.com
+

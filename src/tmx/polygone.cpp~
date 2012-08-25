@@ -1,0 +1,39 @@
+#include <iostream>
+
+#include <boost/property_tree/ptree.hpp>
+#include <boost/property_tree/xml_parser.hpp>
+
+#include "tmx"
+
+using namespace std;
+using namespace boost::property_tree;
+
+tmx::Polygone::Polygone(const boost::property_tree::ptree &pt)
+{
+    /*int name="Calque de Tile 1" width="20" height="15"*/
+    const ptree& node = pt;
+    // On parse pour trouver des attributs de la map, des tilesets, Polygones, etc
+    for (ptree::const_iterator cat = node.begin(); cat != node.end(); ++cat) {
+            if(cat->first == "<xmlattr>")
+            {
+                const ptree& node = cat->second;
+                for (ptree::const_iterator attr = node.begin(); attr != node.end(); ++attr) 
+                {
+                    if(!attr->second.data().empty())
+                    {
+                        if(attr->first == "points")
+                            points = parsePoints(attr->second.data());
+                    }
+                }
+            }
+        }
+}
+
+tmx::Polygone::Polygone() {}
+
+void tmx::Polygone::dump()
+{
+    cout << "Points du polygone : " << endl;
+    for(auto p : points)
+        std::cout << "(" << p.first << "|" << p.second << ") ";
+}

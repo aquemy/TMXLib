@@ -1,0 +1,17 @@
+As TMXlib is really young, it is a little bit hardcoded and some parts should be improved.
+In addition, a lot of features would be added in order to provide a complete and easy-use library for tmx files.
+
+TODO List
+
+* Code & Best-practices
+-> Const-correctness
+-> Exceptions mecanism
+-> Comments & Documentation
+-> Exhaustive tests
+-> Examples
+
+* Features
+-> Getters & Setters
+-> Compression ZLIB & GZIP
+-> Multithread loading
+
