@@ -67,6 +67,8 @@ Objectgroup::Objectgroup(const boost::property_tree::ptree &pt)
                         std::istringstream(attr->second.data()) >> opacity;
                     else if(attr->first == "color")
                         std::istringstream(attr->second.data()) >> color;
+                    else
+                        throw "Unknow attribut in Objectgroup";
                 }
             }
         }
@@ -80,6 +82,8 @@ Objectgroup::Objectgroup(const boost::property_tree::ptree &pt)
             const ptree& node = cat->second;
             objects.push_back(Object(node));
         }
+        else
+            throw "Unknow subsection in Objectgroup";
     }
 }
 

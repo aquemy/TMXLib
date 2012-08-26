@@ -56,6 +56,8 @@ Polygon::Polygon(const boost::property_tree::ptree &pt)
                 {
                     if(attr->first == "points")
                         points = parsePoints(attr->second.data());
+                    else
+                        throw "Unknow attribut in Polygon";
                 }
             }
         }

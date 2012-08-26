@@ -63,6 +63,8 @@ Image::Image(const boost::property_tree::ptree &pt)
                         std::istringstream(attr->second.data()) >> width;
                     else if(attr->first == "height")
                         std::istringstream(attr->second.data()) >> height;
+                    else
+                        throw "Unknow attribut in Image";  
                 }
             }
         }

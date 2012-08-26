@@ -65,10 +65,14 @@ Properties::Properties(const boost::property_tree::ptree &pt)
                                 property.first = attr->second.data();
                             else if(attr->first == "value")
                                 property.second = attr->second.data();
+                            else
+                                throw "Unknow attribut in Properties";
                         }
                     }
                     properties.insert(property);
                 }
+                else
+                    throw "Unknow subsection in Properties";
             }
         }
     }

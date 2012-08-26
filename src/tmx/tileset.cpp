@@ -68,6 +68,8 @@ Tileset::Tileset(const boost::property_tree::ptree &pt)
                         std::istringstream(attr->second.data()) >> spacing;
                     else if(attr->first == "margin")
                         std::istringstream(attr->second.data()) >> margin;
+                    else
+                        throw "Unknow attribut in Tileset";
                 }
             }
         }
@@ -86,6 +88,8 @@ Tileset::Tileset(const boost::property_tree::ptree &pt)
             const ptree& node = cat->second;
             tiles.push_back(Tile(node));
         }
+        else
+            throw "Unknow subsection in Tileset";
     }
 
     if(!source.empty())

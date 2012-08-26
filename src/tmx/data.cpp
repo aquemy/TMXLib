@@ -60,6 +60,8 @@ Data::Data(const boost::property_tree::ptree &pt)
                             encoding = Encoding::CSV;
                         else if(attr->second.data() == "base64")
                             encoding = Encoding::BASE64;
+                        else
+                            throw "Invalid encoding in Data";
                     }
                     else if(attr->first == "compression")
                     {
@@ -67,19 +69,19 @@ Data::Data(const boost::property_tree::ptree &pt)
                             compression = Compression::GZIP;
                         else if(attr->second.data() == "zlib")
                             compression = Compression::ZLIB;
+                        else
+                            throw "Invalid compression in Data";
                     }
                 }
             }
         }
-        else if(encoding == Encoding::XML)
+        else if(encoding == Encoding::XML && cat->first == "tile")
         {
-            if(cat->first == "tile")
-            {
-                const ptree& node = cat->second;
-                tiles.push_back(Tile(node));
-            }
+            const ptree& node = cat->second;
+            tiles.push_back(Tile(node));
         }
     }
+    
     if(encoding == Encoding::CSV)
     {
         tiles = parseTilesFromCSV(node.data());
@@ -88,11 +90,11 @@ Data::Data(const boost::property_tree::ptree &pt)
     {
         if(compression == Compression::GZIP)
         {
-            // TODO Exception
+            throw "The GZIP compression is not available at the moment";
         }
         else if(compression == Compression::ZLIB)
         {
-            // TODO Exception
+            throw "The ZLIB compression is not available at the moment";
         }
     }
 }

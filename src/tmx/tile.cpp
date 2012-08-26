@@ -57,6 +57,8 @@ Tile::Tile(const boost::property_tree::ptree &pt)
                 {
                     if(attr->first == "gid" || attr->first == "id")
                         std::istringstream(attr->second.data()) >> id;
+                    else
+                        throw "Unknow attribut in Tile";
                 }
             }
         }
@@ -65,7 +67,8 @@ Tile::Tile(const boost::property_tree::ptree &pt)
             const ptree& node = cat->second;
             properties = Properties(node);
         }
-
+        else
+            throw "Unknow subsection in Tile";
     }
 }
 

@@ -63,6 +63,8 @@ Layer::Layer(const boost::property_tree::ptree &pt)
                         std::istringstream(attr->second.data()) >> height;
                     else if(attr->first == "opacity")
                         std::istringstream(attr->second.data()) >> opacity;
+                    else
+                        throw "Unknow attribut in Layer";
                 }
             }
         }
@@ -76,6 +78,8 @@ Layer::Layer(const boost::property_tree::ptree &pt)
             const ptree& node = cat->second;
             data = Data(node);
         }
+        else
+            throw "Unknow subsection in Layer";
     }
 }
 

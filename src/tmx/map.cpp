@@ -65,8 +65,10 @@ bool Map::load(std::string path)
                     else if(attr->first == "orientation")
                         if(attr->second.data() == "orthogonal")
                             orientation = ORTHOGONAL;
-                        else
+                        else if(attr->second.data() == "isometric")
                             orientation = ISOMETRIC;
+                        else
+                            throw "Unknow orientation";
                     else if(attr->first == "width")
                         std::istringstream(attr->second.data()) >> width;
                     else if(attr->first == "height")
@@ -75,6 +77,8 @@ bool Map::load(std::string path)
                         std::istringstream(attr->second.data()) >> tilewidth;
                     else if(attr->first == "tileheight")
                         std::istringstream(attr->second.data()) >> tileheight;
+                    else
+                        throw "Unknow attribut in Map";
                 }
             }
         }
@@ -98,10 +102,8 @@ bool Map::load(std::string path)
             const ptree& node = cat->second;
             objectgroups.push_back(Objectgroup(node));
         }
-
-        /*if (!attr->second.data().empty()) {
-            std::cout << "=\"" << attr->second.data() << '"';
-        }*/
+        else
+            throw "Unknow subsection in Map";
     }
 
     return true;

@@ -69,6 +69,8 @@ Object::Object(const boost::property_tree::ptree &pt)
                         std::istringstream(attr->second.data()) >> height;
                     else if(attr->first == "type")
                         std::istringstream(attr->second.data()) >> type;
+                    else
+                        throw "Unknow attribut in Object";
                 }
             }
         }
@@ -87,6 +89,8 @@ Object::Object(const boost::property_tree::ptree &pt)
             const ptree& node = cat->second;
             properties = Properties(node);
         }
+        else
+            throw "Unknow subsection in Object";
     }
 }
 
