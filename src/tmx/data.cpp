@@ -44,7 +44,10 @@ Data::Data(const boost::property_tree::ptree &pt)
 {
     const ptree& node = pt;
 
+    // Define the default encoding
     encoding = Encoding::XML;
+    
+    // Parse data
     for (ptree::const_iterator cat = node.begin(); cat != node.end(); ++cat)
     {
         if(cat->first == "<xmlattr>")
@@ -82,6 +85,7 @@ Data::Data(const boost::property_tree::ptree &pt)
         }
     }
     
+    // If encoding is not XML, we have to parse data differently
     if(encoding == Encoding::CSV)
     {
         tiles = parseTilesFromCSV(node.data());

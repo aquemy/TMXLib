@@ -44,13 +44,14 @@ namespace tmx
 ///////////////////////////////////////////////////////////////////////////
 bool Map::load(std::string path)
 {
+    // Opening TMX file
     ptree pt;
     read_xml(path, pt);
 
     ptree::const_iterator child = pt.begin();
     ptree node = child->second;
 
-    // On parse pour trouver des attributs de la map, des tilesets, layers, etc
+    // Parse data
     for (ptree::const_iterator cat = node.begin(); cat != node.end(); ++cat)
     {
         if(cat->first == "<xmlattr>")

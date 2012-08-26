@@ -27,6 +27,10 @@
 #ifndef UTILS_HPP
 #define UTILS_HPP
 
+///////////////////////////////////////////////////////////////////////////
+// Headers
+///////////////////////////////////////////////////////////////////////////
+
 #include <tmx/point.hpp>
 #include <tmx/tile.hpp>
 
@@ -36,7 +40,33 @@ namespace tmx
 /// \brief Some useful free functions
 ///
 ///////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////
+/// \brief Parse a string containing points
+///
+/// As poligons and polylines are represented by a string, we need to parse
+/// it using regular expressions.
+/// Note that, at the moment, the function uses Boost::regex instead of
+/// C++11 regex. This is due to the fact that gcc does not implement regex.
+///
+/// \param path Path to the tmx file your would like to load
+///
+/// \return Points extracted from string
+///
+///////////////////////////////////////////////////////////////////////////
 Points parsePoints(std::string str);
+
+///////////////////////////////////////////////////////////////////////////
+/// \brief Parse tiles from the CSV format
+///
+/// As tiles using CSV are represented by a string, we need to parse
+/// it using regular expressions.
+///
+/// \param path Path to the tmx file your would like to load
+///
+/// \return Tiles extracted from string
+///
+///////////////////////////////////////////////////////////////////////////
 Tiles parseTilesFromCSV(std::string str);
 
 }

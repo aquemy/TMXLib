@@ -42,10 +42,9 @@ namespace tmx
 ///////////////////////////////////////////////////////////////////////////
 Objectgroup::Objectgroup(const boost::property_tree::ptree &pt)
 {
-    /*int name="Calque de Tile 1" width="20" height="15"*/
     const ptree& node = pt;
 
-    // On parse pour trouver des attributs de la map, des tilesets, Objectgroups, etc
+    // Parse data
     for (ptree::const_iterator cat = node.begin(); cat != node.end(); ++cat)
     {
         if(cat->first == "<xmlattr>")
