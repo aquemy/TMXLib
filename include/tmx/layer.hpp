@@ -73,6 +73,7 @@ public:
     void dump();
 
 private:
+
     ///////////////////////////////////////////////////////////////////////////
     // Member data
     ///////////////////////////////////////////////////////////////////////////
@@ -85,6 +86,7 @@ private:
     bool visible;
     Data data;
     Properties properties;
+    
 };
     
 using Layers = std::vector<Layer>;

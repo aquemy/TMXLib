@@ -53,7 +53,7 @@ public:
     /// Create an empty Objectgroup object
     ///
     ///////////////////////////////////////////////////////////////////////////
-    Objectgroup();
+    Objectgroup() = default;
     
     ///////////////////////////////////////////////////////////////////////////
     /// \brief Contructor by parsing
@@ -72,6 +72,10 @@ public:
     void dump();
     
 private:
+
+    ///////////////////////////////////////////////////////////////////////////
+    // Member data
+    ///////////////////////////////////////////////////////////////////////////
     std::string name;
     std::string color;
     int width;
@@ -79,6 +83,7 @@ private:
     float opacity;
     Objects objects;
     Properties properties;
+    
 };
 
 using Objectgroups = std::vector<Objectgroup>;

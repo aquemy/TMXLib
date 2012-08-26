@@ -6,8 +6,9 @@ TODO List
 * Code & Best-practices
 -> Const-correctness
 -> Exceptions mecanism
--> Comments & Documentation
 -> Exhaustive tests
+-> Move semantics
+-> Using STL inheritance for containers
 -> Examples
 
 * Features
