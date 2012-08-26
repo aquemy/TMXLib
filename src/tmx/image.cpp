@@ -63,7 +63,7 @@ Image::Image(const boost::property_tree::ptree &pt)
                     else if(attr->first == "height")
                         std::istringstream(attr->second.data()) >> height;
                     else
-                        throw "Unknow attribut in Image";  
+                        throw std::runtime_error("Unknow attribut in Image");  
                 }
             }
         }
@@ -73,9 +73,10 @@ Image::Image(const boost::property_tree::ptree &pt)
 ///////////////////////////////////////////////////////////////////////////
 void Image::dump()
 {
-    std::cout << "Source : " << source << std::endl;
-    std::cout << "Trans : " << trans << std::endl;
-    std::cout << "Dimension (w*h) : " << width << "*" << height << std::endl;
+    std::cout << "#######################################################" << std::endl;
+    std::cout << "### Source : " << source << std::endl;
+    std::cout << "### Trans : " << trans << std::endl;
+    std::cout << "### Dimension (w*h) : " << width << "*" << height << std::endl;
 }
 
 } // namespace tmx

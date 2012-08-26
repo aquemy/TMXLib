@@ -63,7 +63,7 @@ Layer::Layer(const boost::property_tree::ptree &pt)
                     else if(attr->first == "opacity")
                         std::istringstream(attr->second.data()) >> opacity;
                     else
-                        throw "Unknow attribut in Layer";
+                        throw std::runtime_error("Unknow attribut in Layer");
                 }
             }
         }
@@ -78,16 +78,17 @@ Layer::Layer(const boost::property_tree::ptree &pt)
             data = Data(node);
         }
         else
-            throw "Unknow subsection in Layer";
+            throw std::runtime_error("Unknow subsection in Layer");
     }
 }
 
 ///////////////////////////////////////////////////////////////////////////
 void Layer::dump()
 {
-    std::cout << "Name : " << name << std::endl;
-    std::cout << "Layer Dimension (w*h) : " << width << "*" << height << std::endl;
-    std::cout << "Opacity : " << opacity << std::endl;
+    std::cout << "#######################################################" << std::endl;
+    std::cout << "## Name : " << name << std::endl;
+    std::cout << "## Layer Dimension (w*h) : " << width << "*" << height << std::endl;
+    std::cout << "## Opacity : " << opacity << std::endl;
     properties.dump();
     data.dump();
 }

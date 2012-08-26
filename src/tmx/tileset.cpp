@@ -127,6 +127,8 @@ bool Tileset::load(std::string path)
                         std::istringstream(attr->second.data()) >> spacing;
                     else if(attr->first == "margin")
                         std::istringstream(attr->second.data()) >> margin;
+                    else
+                        throw std::runtime_error("Unknow argument in Tileset");
                 }
             }
         }
@@ -145,6 +147,8 @@ bool Tileset::load(std::string path)
             const ptree& node = cat->second;
             tiles.push_back(Tile(node));
         }
+        else
+            throw std::runtime_error("Unknow subsection in Tileset");
     }
 
     return true;
@@ -153,14 +157,13 @@ bool Tileset::load(std::string path)
 ///////////////////////////////////////////////////////////////////////////
 void Tileset::dump()
 {
-    std::cout << "Name : " << name << std::endl;
-    std::cout << "Firstgid : " << firstgid << std::endl;
-    std::cout << "Tile Dimension (w*h) : " << tilewidth << "*" << tileheight << std::endl;
-    std::cout << "Spacing*Margin : " << spacing << "*" << margin << std::endl;
-
+    std::cout << "#######################################################" << std::endl;
+    std::cout << "## Name : " << name << std::endl;
+    std::cout << "## Firstgid : " << firstgid << std::endl;
+    std::cout << "## Tile Dimension (w*h) : " << tilewidth << "*" << tileheight << std::endl;
+    std::cout << "## Spacing*Margin : " << spacing << "*" << margin << std::endl;
     properties.dump();
     image.dump();
-    
     for(auto tile : tiles)
         tile.dump();
 }

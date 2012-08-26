@@ -25,6 +25,7 @@
 ///////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
+#include <exception>
 
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>
@@ -33,10 +34,12 @@
 
 int main(void)
 {
-    tmx::Map test;
+
+        tmx::Map test;
     
-    test.load("test.tmx");
-    test.dump();
+        test.load("test.tmx");
+        test.dump();
+   
     
     return 0;
 }

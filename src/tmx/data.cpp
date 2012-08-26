@@ -64,7 +64,7 @@ Data::Data(const boost::property_tree::ptree &pt)
                         else if(attr->second.data() == "base64")
                             encoding = Encoding::BASE64;
                         else
-                            throw "Invalid encoding in Data";
+                            throw std::runtime_error("Invalid encoding in Data");
                     }
                     else if(attr->first == "compression")
                     {
@@ -73,7 +73,7 @@ Data::Data(const boost::property_tree::ptree &pt)
                         else if(attr->second.data() == "zlib")
                             compression = Compression::ZLIB;
                         else
-                            throw "Invalid compression in Data";
+                            throw std::runtime_error("Invalid compression in Data");
                     }
                 }
             }
@@ -94,11 +94,11 @@ Data::Data(const boost::property_tree::ptree &pt)
     {
         if(compression == Compression::GZIP)
         {
-            throw "The GZIP compression is not available at the moment";
+            throw std::runtime_error("The GZIP compression is not available at the moment");
         }
         else if(compression == Compression::ZLIB)
         {
-            throw "The ZLIB compression is not available at the moment";
+            throw std::runtime_error("The ZLIB compression is not available at the moment");
         }
     }
 }
@@ -106,9 +106,11 @@ Data::Data(const boost::property_tree::ptree &pt)
 ///////////////////////////////////////////////////////////////////////////
 void Data::dump()
 {
-    std::cout << "Encoding : " << encoding << std::endl;
+    std::cout << "#######################################################" << std::endl;
+    std::cout << "### Encoding : " << encoding << std::endl;
     for(auto tile : tiles)
         tile.dump();
+    std::cout << std::endl;
 }
 
 } // namespace tmx

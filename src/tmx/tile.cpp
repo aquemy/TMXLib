@@ -29,6 +29,7 @@
 ///////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
+#include <iomanip>
 
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>
@@ -71,14 +72,14 @@ Tile::Tile(const boost::property_tree::ptree &pt)
             properties = Properties(node);
         }
         else
-            throw "Unknow subsection in Tile";
+            throw std::runtime_error("Unknow subsection in Tile");
     }
 }
 
 ///////////////////////////////////////////////////////////////////////////
 void Tile::dump()
 {
-    std::cout << id;
+    std::cout << std::setw(4) << id << " ";
     properties.dump();
 }
 

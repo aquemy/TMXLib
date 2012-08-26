@@ -66,13 +66,13 @@ Properties::Properties(const boost::property_tree::ptree &pt)
                             else if(attr->first == "value")
                                 property.second = attr->second.data();
                             else
-                                throw "Unknow attribut in Properties";
+                                throw std::runtime_error("Unknow attribut in Properties");
                         }
                     }
                     properties.insert(property);
                 }
                 else
-                    throw "Unknow subsection in Properties";
+                    throw std::runtime_error("Unknow subsection in Properties");
             }
         }
     }
@@ -87,8 +87,12 @@ std::string Properties::operator[] (const std::string key)
 ///////////////////////////////////////////////////////////////////////////
 void Properties::dump()
 {
-    for(auto property : properties)
-        std::cout << property.first << " : " << property.second << std::endl;
+    if(!properties.empty())
+    {
+        std::cout << "# Properties : " << std::endl;
+        for(auto property : properties)
+            std::cout << "# " << property.first << " : " << property.second << std::endl;
+    }
 }
 
 } // namespace tmx

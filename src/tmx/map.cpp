@@ -52,6 +52,7 @@ bool Map::load(std::string path)
 {
     // Opening TMX file
     ptree pt;
+    
     read_xml(path, pt);
 
     ptree::const_iterator child = pt.begin();
@@ -85,7 +86,7 @@ bool Map::load(std::string path)
                     else if(attr->first == "tileheight")
                         std::istringstream(attr->second.data()) >> tileheight;
                     else
-                        throw "Unknow attribut in Map";
+                        throw std::runtime_error("Unknow attribut in Map");
                 }
             }
         }
@@ -110,7 +111,7 @@ bool Map::load(std::string path)
             objectgroups.push_back(Objectgroup(node));
         }
         else
-            throw "Unknow subsection in Map";
+            throw std::runtime_error("Unknow subsection in Map");
     }
 
     return true;
@@ -120,22 +121,18 @@ bool Map::load(std::string path)
 void Map::dump()
 {
     std::cout << "#######################################################" << std::endl;
-    std::cout << "Version : " << version << std::endl;
-    std::cout << "Orientation : " << orientation << std::endl;
-    std::cout << "Dimension (w*h) : " << width << "*" << height << std::endl;
-    std::cout << "Tile Dimension (w*h) : " << tilewidth << "*" << tileheight << std::endl;
-    std::cout << "Properties :" << std::endl;
+    std::cout << "# Version : " << version << std::endl;
+    std::cout << "# Orientation : " << orientation << std::endl;
+    std::cout << "# Dimension (w*h) : " << width << "*" << height << std::endl;
+    std::cout << "# Tile Dimension (w*h) : " << tilewidth << "*" << tileheight << std::endl;
+    std::cout << "# Properties :" << std::endl;
     properties.dump();
-    std::cout << "#######################################################" << std::endl;
-for(auto tileset : tilesets)
+    for(auto tileset : tilesets)
         tileset.dump();
-    std::cout << "#######################################################" << std::endl;
-for(auto layer : layers)
+    for(auto layer : layers)
         layer.dump();
-    std::cout << "#######################################################" << std::endl;
-for(auto objectgroup : objectgroups)
+    for(auto objectgroup : objectgroups)
         objectgroup.dump();
-    std::cout << "#######################################################" << std::endl;
 }
 
 } // namespace tmx

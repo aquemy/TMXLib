@@ -57,7 +57,7 @@ Polygon::Polygon(const boost::property_tree::ptree &pt)
                     if(attr->first == "points")
                         points = parsePoints(attr->second.data());
                     else
-                        throw "Unknow attribut in Polygon";
+                        throw std::runtime_error("Unknow attribut in Polygon");
                 }
             }
         }
@@ -67,10 +67,14 @@ Polygon::Polygon(const boost::property_tree::ptree &pt)
 ///////////////////////////////////////////////////////////////////////////
 void Polygon::dump()
 {
-    std::cout << "Points du Polygon : " << std::endl;
-    for(auto p : points)
-        std::cout << "(" << p.first << "|" << p.second << ") ";
-    std::cout << std::endl;
+    if(!points.empty())
+    {
+        std::cout << "#######################################################" << std::endl;
+        std::cout << "#### Polygon points : " << std::endl << "### ";
+        for(auto p : points)
+            std::cout << "(" << p.first << "|" << p.second << ") ";
+        std::cout << std::endl;
+    }
 }
 
 } // namespace tmx

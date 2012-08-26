@@ -67,7 +67,7 @@ Objectgroup::Objectgroup(const boost::property_tree::ptree &pt)
                     else if(attr->first == "color")
                         std::istringstream(attr->second.data()) >> color;
                     else
-                        throw "Unknow attribut in Objectgroup";
+                        throw std::runtime_error("Unknow attribut in Objectgroup");
                 }
             }
         }
@@ -82,19 +82,20 @@ Objectgroup::Objectgroup(const boost::property_tree::ptree &pt)
             objects.push_back(Object(node));
         }
         else
-            throw "Unknow subsection in Objectgroup";
+            throw std::runtime_error("Unknow subsection in Objectgroup");
     }
 }
 
 ///////////////////////////////////////////////////////////////////////////
 void Objectgroup::dump()
 {
-    std::cout << "Name : " << name << std::endl;
-    std::cout << "Color : " << color << std::endl;
-    std::cout << "Objectgroup Dimension (w*h) : " << width << "*" << height << std::endl;
-    std::cout << "Opacity : " << opacity << std::endl;
+    std::cout << "#######################################################" << std::endl;
+    std::cout << "## Name : " << name << std::endl;
+    std::cout << "## Color : " << color << std::endl;
+    std::cout << "## Objectgroup Dimension (w*h) : " << width << "*" << height << std::endl;
+    std::cout << "## Opacity : " << opacity << std::endl;
     properties.dump();
-for(auto object : objects)
+    for(auto object : objects)
         object.dump();
 }
 

@@ -69,7 +69,7 @@ Object::Object(const boost::property_tree::ptree &pt)
                     else if(attr->first == "type")
                         std::istringstream(attr->second.data()) >> type;
                     else
-                        throw "Unknow attribut in Object";
+                        throw std::runtime_error("Unknow attribut in Object");
                 }
             }
         }
@@ -89,21 +89,23 @@ Object::Object(const boost::property_tree::ptree &pt)
             properties = Properties(node);
         }
         else
-            throw "Unknow subsection in Object";
+            throw std::runtime_error("Unknow subsection in Object");
     }
 }
 
 ///////////////////////////////////////////////////////////////////////////
 void Object::dump()
 {
-    std::cout << "Name : " << name << std::endl;
-    std::cout << "Id : " << id << std::endl;
-    std::cout << "Type : " << type << std::endl;
-    std::cout << "Object placement : " << x << " - " << y << std::endl;
-    std::cout << "Object Dimension (w*h) : " << width << "*" << height << std::endl;
+    std::cout << "#######################################################" << std::endl;
+    std::cout << "### Name : " << name << std::endl;
+    std::cout << "### Id : " << id << std::endl;
+    std::cout << "### Type : " << type << std::endl;
+    std::cout << "### Object placement : " << x << " - " << y << std::endl;
+    std::cout << "### Object Dimension (w*h) : " << width << "*" << height << std::endl;
+    properties.dump();
+    
     polygon.dump();
     polyline.dump();
-    properties.dump();
 }
 
 } // namespace tmx

@@ -57,7 +57,7 @@ Polyline::Polyline(const boost::property_tree::ptree &pt)
                     if(attr->first == "points")
                         points = parsePoints(attr->second.data());
                     else
-                        throw "Unknow attribut in Polyline";
+                        throw std::runtime_error("Unknow attribut in Polyline");
                 }
             }
         }
@@ -67,10 +67,14 @@ Polyline::Polyline(const boost::property_tree::ptree &pt)
 ///////////////////////////////////////////////////////////////////////////
 void Polyline::dump()
 {
-    std::cout << "Points du Polyline : " << std::endl;
-for(auto p : points)
-        std::cout << "(" << p.first << "|" << p.second << ") ";
-    std::cout << std::endl;
+    if(!points.empty())
+    {
+        std::cout << "#######################################################" << std::endl;
+        std::cout << "#### Polyline points: " << std::endl << "### ";
+        for(auto p : points)
+            std::cout << "(" << p.first << "|" << p.second << ") ";
+        std::cout << std::endl;
+    }
 }
 
 } // namespace tmx
