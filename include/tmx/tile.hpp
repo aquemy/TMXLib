@@ -72,12 +72,12 @@ private:
     ///////////////////////////////////////////////////////////////////////////
     // Member data
     ///////////////////////////////////////////////////////////////////////////
-    int id;
-    Properties properties;
+    int id;                ///< ID of the tile
+    Properties properties; ///< Properties of the tile
     
 };
     
-    using Tiles = std::vector<Tile>;
+    using Tiles = std::vector<Tile>; 
     
 } // namespace tmx
 

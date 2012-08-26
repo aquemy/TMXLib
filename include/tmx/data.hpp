@@ -76,10 +76,9 @@ private:
     ///////////////////////////////////////////////////////////////////////////
     // Member data
     ///////////////////////////////////////////////////////////////////////////
-    Encoding encoding;
-    Compression compression;
-    
-    Tiles tiles;
+    Encoding encoding;       ///< Encoding for data
+    Compression compression; ///< Compression for data
+    Tiles tiles;             ///< Tiles container
     
 };
 

@@ -35,8 +35,8 @@ namespace tmx
 ///////////////////////////////////////////////////////////////////////////
     typedef enum
     {
-        ORTHOGONAL = 0,
-        ISOMETRIC = 1,
+        ORTHOGONAL = 0, ///< Orthogonal map
+        ISOMETRIC = 1,  ///< Isometric map
     } Orientation;
 
 } // namespace tmx

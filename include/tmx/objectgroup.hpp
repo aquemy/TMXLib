@@ -76,13 +76,13 @@ private:
     ///////////////////////////////////////////////////////////////////////////
     // Member data
     ///////////////////////////////////////////////////////////////////////////
-    std::string name;
-    std::string color;
-    int width;
-    int height;
-    float opacity;
-    Objects objects;
-    Properties properties;
+    std::string name;      ///< Name of the objectgroup
+    std::string color;     ///< Color of the objectgroup
+    int width;             ///< Witdh of the objectgroup
+    int height;            ///< Height of the objectgroup
+    float opacity;         ///< Opacity of the objectgroup
+    Objects objects;       ///< Objects of the objectgroup
+    Properties properties; ///< Properties of the objectgroup
     
 };
 

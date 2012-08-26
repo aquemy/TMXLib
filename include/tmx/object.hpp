@@ -79,17 +79,17 @@ private:
     ///////////////////////////////////////////////////////////////////////////
     // Member data
     ///////////////////////////////////////////////////////////////////////////
-    std::string name;
-    std::string type;
-    int x;
-    int y;
-    int width;
-    int height;
-    int id;
-    Image image;
-    Polygon polygon;
-    Polyline polyline;
-    Properties properties;
+    std::string name;      ///< Name of the object
+    std::string type;      ///< Type of the object
+    int x;                 ///< Abscissa of the object
+    int y;                 ///< Ordinata of the object
+    int width;             ///< Width of the object
+    int height;            ///< Height of the object
+    int id;                ///< ID of the object
+    Image image;           ///< Image of the object
+    Polygon polygon;       ///< Polygon
+    Polyline polyline;     ///< Polyline
+    Properties properties; ///< Properties of the object
     
 };
     

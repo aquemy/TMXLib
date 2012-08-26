@@ -84,16 +84,16 @@ private :
     ///////////////////////////////////////////////////////////////////////////
     // Member data
     ///////////////////////////////////////////////////////////////////////////
-    std::string version;
-    Orientation orientation;
-    int width;
-    int height;
-    int tilewidth;
-    int tileheight;
-    Tilesets tilesets;
-    Layers layers;
-    Objectgroups objectgroups;
-    Properties properties;
+    std::string version;       ///< Version of TMX format
+    Orientation orientation;   ///< Orientation of the map
+    int width;                 ///< Width of the map
+    int height;                ///< Height of the map
+    int tilewidth;             ///< Width of a tile
+    int tileheight;            ///< Height of a tile
+    Tilesets tilesets;         ///< Tilesets of the map
+    Layers layers;             ///< Layers of the map
+    Objectgroups objectgroups; ///< Objectgroups of the map
+    Properties properties;     ///< Properties of the map
     
 };
 

@@ -88,16 +88,16 @@ private:
     ///////////////////////////////////////////////////////////////////////////
     // Member data
     ///////////////////////////////////////////////////////////////////////////
-    int firstgid;
-    std::string source;
-    std::string name;
-    int tilewidth;
-    int tileheight;
-    int spacing;
-    int margin;
-    Image image;
-    Tiles tiles;
-    Properties properties;
+    int firstgid;          ///< ID for the first tile of the tileset
+    std::string source;    ///< Path to the tileset
+    std::string name;      ///< Name of the tileset
+    int tilewidth;         ///< Width of a tile
+    int tileheight;        ///< Height of a tile
+    int spacing;           ///< Spacing of the tileset
+    int margin;            ///< Margin of the tileset
+    Image image;           ///< Image of the tileset
+    Tiles tiles;           ///< Tiles of the tileset
+    Properties properties; ///< Properties of the tileset
     
 };
     

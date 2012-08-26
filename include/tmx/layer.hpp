@@ -77,15 +77,15 @@ private:
     ///////////////////////////////////////////////////////////////////////////
     // Member data
     ///////////////////////////////////////////////////////////////////////////
-    std::string name;
-    int x;
-    int y;
-    int width;
-    int height;
-    float opacity;
-    bool visible;
-    Data data;
-    Properties properties;
+    std::string name;      ///< Name of the layer
+    int x;                 ///< Abscissa of the layer
+    int y;                 ///< Ordinata of the layer
+    int width;             ///< Width of the layer
+    int height;            ///< Height of the layer
+    float opacity;         ///< Opacity of the layer
+    bool visible;          ///< Define visibility of the layer
+    Data data;             ///< Data of the layer
+    Properties properties; ///< Properties of the layer
     
 };
     

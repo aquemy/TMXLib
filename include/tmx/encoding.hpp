@@ -35,9 +35,9 @@ namespace tmx
 ///////////////////////////////////////////////////////////////////////////
 typedef enum
 {
-    XML = 0,
-    BASE64 = 1,
-    CSV = 4,
+    XML = 0,     ///< XML encoding
+    BASE64 = 1,  ///< Base64 encoding
+    CSV = 2      ///< CSV encoding
 } Encoding;
 
 } // namespace tmx
