@@ -69,7 +69,7 @@ Properties::Properties(const boost::property_tree::ptree &pt)
                                 throw std::runtime_error("Unknow attribut in Properties");
                         }
                     }
-                    properties.insert(property);
+                    insert(property);
                 }
                 else
                     throw std::runtime_error("Unknow subsection in Properties");
@@ -79,18 +79,12 @@ Properties::Properties(const boost::property_tree::ptree &pt)
 }
 
 ///////////////////////////////////////////////////////////////////////////
-std::string Properties::operator[] (const std::string key)
-{
-    return properties[key];
-}
-
-///////////////////////////////////////////////////////////////////////////
 void Properties::dump()
 {
-    if(!properties.empty())
+    if(!empty())
     {
         std::cout << "# Properties : " << std::endl;
-        for(auto property : properties)
+        for(auto property : *this)
             std::cout << "# " << property.first << " : " << property.second << std::endl;
     }
 }

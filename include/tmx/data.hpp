@@ -65,6 +65,11 @@ public:
     ///////////////////////////////////////////////////////////////////////////
     Data(const boost::property_tree::ptree &pt);
     
+    Encodging getEncoding();
+    Compression getcompression();
+   
+    const Tiles& getTiles(); 
+    
     ///////////////////////////////////////////////////////////////////////////
     /// \brief Print on the standard output the object
     ///
