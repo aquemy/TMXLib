@@ -81,14 +81,16 @@ Data::Data(const boost::property_tree::ptree &pt)
         else if(encoding == Encoding::XML && cat->first == "tile")
         {
             const ptree& node = cat->second;
-            tiles.push_back(Tile(node));
+            push_back(Tile(node));
         }
     }
     
     // If encoding is not XML, we have to parse data differently
     if(encoding == Encoding::CSV)
     {
-        tiles = parseTilesFromCSV(node.data());
+        std::vector<Tile> tiles = parseTilesFromCSV(node.data());
+        for(auto tile : tiles)
+            push_back(tile);
     }
     else if(encoding == Encoding::BASE64)
     {
@@ -104,11 +106,23 @@ Data::Data(const boost::property_tree::ptree &pt)
 }
 
 ///////////////////////////////////////////////////////////////////////////
+Encoding Data::getEncoding()
+{
+    return encoding;
+}
+
+///////////////////////////////////////////////////////////////////////////
+Compression Data::getcompression()
+{
+    return compression;
+}
+
+///////////////////////////////////////////////////////////////////////////
 void Data::dump()
 {
     std::cout << "#######################################################" << std::endl;
     std::cout << "### Encoding : " << encoding << std::endl;
-    for(auto tile : tiles)
+    for(auto tile : *this)
         tile.dump();
     std::cout << std::endl;
 }

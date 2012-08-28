@@ -68,6 +68,18 @@ public:
     ///////////////////////////////////////////////////////////////////////////
     Object(const boost::property_tree::ptree &pt);
     
+    std::string getName();     
+    std::string getType();     
+    int getX();                
+    int getY();                
+    int getWidth();             
+    int getHeight();            
+    int getId();                
+    Image getImage();           
+    Polygon getPolygon();       
+    Polyline getPolyline();     
+    Properties getProperties();
+    
     ///////////////////////////////////////////////////////////////////////////
     /// \brief Print on the standard output the object
     ///

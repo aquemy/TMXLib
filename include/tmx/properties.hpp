@@ -43,7 +43,7 @@ typedef std::pair<std::string,std::string> Property;
 /// \brief A class that contains properties for all map parts
 ///
 ///////////////////////////////////////////////////////////////////////////    
-class Properties : public std::map<const std::string,std::string>
+class Properties : public std::map<std::string,std::string>
 {
 public:
 

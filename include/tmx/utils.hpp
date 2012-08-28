@@ -54,7 +54,7 @@ namespace tmx
 /// \return Points extracted from string
 ///
 ///////////////////////////////////////////////////////////////////////////
-Points parsePoints(std::string str);
+Points parsePoints(const std::string str);
 
 ///////////////////////////////////////////////////////////////////////////
 /// \brief Parse tiles from the CSV format
@@ -67,7 +67,7 @@ Points parsePoints(std::string str);
 /// \return Tiles extracted from string
 ///
 ///////////////////////////////////////////////////////////////////////////
-Tiles parseTilesFromCSV(std::string str);
+std::vector<Tile> parseTilesFromCSV(const std::string str);
 
 }
 

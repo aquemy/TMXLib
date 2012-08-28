@@ -43,7 +43,7 @@ namespace tmx
 /// \brief Main class to manipulate maps from TMX
 ///
 ///////////////////////////////////////////////////////////////////////////
-class Map
+class Map : public std::vector<Layer>
 {
 public :
 
@@ -63,7 +63,7 @@ public :
     /// \param path Path to the tmx file your would like to load
     ///
     ///////////////////////////////////////////////////////////////////////////
-    Map(std::string path);
+    Map(const std::string path);
 
     ///////////////////////////////////////////////////////////////////////////
     /// \brief Load a map from a file
@@ -71,7 +71,17 @@ public :
     /// \param path Path to the tmx file your would like to load
     ///
     ///////////////////////////////////////////////////////////////////////////
-    bool load(std::string path);
+    void load(std::string path);
+    
+    std::string getVersion();       
+    Orientation getOrientation();  
+    int getWidth();                 
+    int getHeight();               
+    int getTilewidth();           
+    int getTileheight();            
+    Tilesets getTilesets();                   
+    Objectgroups getObjectgroups(); 
+    Properties getProperties();    
     
     ///////////////////////////////////////////////////////////////////////////
     /// \brief Print on the standard output the object
@@ -91,7 +101,6 @@ private :
     int tilewidth;             ///< Width of a tile
     int tileheight;            ///< Height of a tile
     Tilesets tilesets;         ///< Tilesets of the map
-    Layers layers;             ///< Layers of the map
     Objectgroups objectgroups; ///< Objectgroups of the map
     Properties properties;     ///< Properties of the map
     

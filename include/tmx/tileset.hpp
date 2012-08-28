@@ -45,17 +45,9 @@ namespace tmx
 /// \brief A class that stores tileset description
 ///
 ///////////////////////////////////////////////////////////////////////////
-class Tileset
+class Tileset : public std::vector<Tile>
 {
 public:
-
-    ///////////////////////////////////////////////////////////////////////////
-    /// \brief Default constructor
-    ///
-    /// Create an empty Tileset object
-    ///
-    ///////////////////////////////////////////////////////////////////////////
-    Tileset() = default;
 
     ///////////////////////////////////////////////////////////////////////////
     /// \brief Contructor by parsing
@@ -75,7 +67,17 @@ public:
     /// \param path Path to the tsx file your would like to load
     ///
     ///////////////////////////////////////////////////////////////////////////        
-    bool load(std::string path);
+    void load(const std::string path);
+    
+    int getFirstGid();          
+    std::string getSource();    
+    std::string getName();      
+    int getTilewidth();         
+    int getTileheight();        
+    int getSpacing();           
+    int getMargin();            
+    Image getImage();           
+    Properties getProperties();
         
     ///////////////////////////////////////////////////////////////////////////
     /// \brief Print on the standard output the object
@@ -96,7 +98,6 @@ private:
     int spacing;           ///< Spacing of the tileset
     int margin;            ///< Margin of the tileset
     Image image;           ///< Image of the tileset
-    Tiles tiles;           ///< Tiles of the tileset
     Properties properties; ///< Properties of the tileset
     
 };

@@ -61,6 +61,11 @@ public :
     ///////////////////////////////////////////////////////////////////////////
     Image(const boost::property_tree::ptree &pt);
     
+    std::string getSource();
+    int getTrans();
+    int getWidth();
+    int getHeight();
+    
     ///////////////////////////////////////////////////////////////////////////
     /// \brief Print on the standard output the object
     ///

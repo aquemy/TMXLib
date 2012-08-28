@@ -49,7 +49,7 @@ public:
     /// Create an empty Tile object
     ///
     ///////////////////////////////////////////////////////////////////////////
-    Tile(int id = 0);
+    Tile(const int id = 0);
     
     ///////////////////////////////////////////////////////////////////////////
     /// \brief Contructor by parsing
@@ -60,6 +60,9 @@ public:
     ///
     ///////////////////////////////////////////////////////////////////////////
     Tile(const boost::property_tree::ptree &pt);
+    
+    int getId();
+    Properties getProperties();
     
     ///////////////////////////////////////////////////////////////////////////
     /// \brief Print on the standard output the object
@@ -76,8 +79,6 @@ private:
     Properties properties; ///< Properties of the tile
     
 };
-    
-    using Tiles = std::vector<Tile>; 
     
 } // namespace tmx
 

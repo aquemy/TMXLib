@@ -64,6 +64,14 @@ public:
     ///
     ///////////////////////////////////////////////////////////////////////////
     Objectgroup(const boost::property_tree::ptree &pt);
+    
+    std::string getName();      
+    std::string getColor();     
+    int getWidth();             
+    int getHeight();            
+    float getOpacity();         
+    Objects getObjects();       
+    Properties getProperties();
         
     ///////////////////////////////////////////////////////////////////////////
     /// \brief Print on the standard output the object

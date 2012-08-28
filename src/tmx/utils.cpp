@@ -39,7 +39,7 @@
 namespace tmx
 {
 ///////////////////////////////////////////////////////////////////////////
-Points parsePoints(std::string str)
+Points parsePoints(const std::string str)
 {
     Points points;                                        
     Point p;
@@ -62,9 +62,9 @@ Points parsePoints(std::string str)
 }
 
 ///////////////////////////////////////////////////////////////////////////
-Tiles parseTilesFromCSV(std::string str)
+std::vector<Tile> parseTilesFromCSV(const std::string str)
 {
-    Tiles tiles;                                        
+    std::vector<Tile> tiles;                                        
     int id; 
     std::string buf;           
     std::stringstream ss(str);

@@ -66,6 +66,16 @@ public:
     ///////////////////////////////////////////////////////////////////////////
     Layer(const boost::property_tree::ptree &pt);
     
+    std::string getName();
+    int getX();                
+    int getY();               
+    int getWidth();           
+    int getHeight();          
+    float getOpacity();        
+    bool getVisible();         
+    Data getData();             
+    Properties getProperties();
+    
     ///////////////////////////////////////////////////////////////////////////
     /// \brief Print on the standard output the object
     ///

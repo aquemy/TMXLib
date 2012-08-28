@@ -48,7 +48,7 @@ Map::Map(std::string path)
 }
 
 ///////////////////////////////////////////////////////////////////////////
-bool Map::load(std::string path)
+void Map::load(std::string path)
 {
     // Opening TMX file
     ptree pt;
@@ -103,7 +103,7 @@ bool Map::load(std::string path)
         else if(cat->first == "layer")
         {
             const ptree& node = cat->second;
-            layers.push_back(Layer(node));
+            push_back(Layer(node));
         }
         else if(cat->first == "objectgroup")
         {
@@ -113,9 +113,61 @@ bool Map::load(std::string path)
         else
             throw std::runtime_error("Unknow subsection in Map");
     }
-
-    return true;
 }
+
+///////////////////////////////////////////////////////////////////////////
+std::string Map::getVersion()
+{
+    return version;
+}     
+
+///////////////////////////////////////////////////////////////////////////
+Orientation Map::getOrientation()
+{
+    return orientation;
+}     
+ 
+///////////////////////////////////////////////////////////////////////////
+int Map::getWidth()
+{
+    return width;
+}     
+   
+///////////////////////////////////////////////////////////////////////////             
+int Map::getHeight()
+{
+    return height;
+}     
+    
+///////////////////////////////////////////////////////////////////////////          
+int Map::getTilewidth()
+{
+    return tilewidth;
+}     
+   
+///////////////////////////////////////////////////////////////////////////        
+int Map::getTileheight()
+{
+    return tileheight;
+}     
+    
+///////////////////////////////////////////////////////////////////////////       
+Tilesets Map::getTilesets()
+{
+    return tilesets;
+}      
+    
+///////////////////////////////////////////////////////////////////////////       
+Objectgroups Map::getObjectgroups()
+{
+    return objectgroups;
+}     
+
+///////////////////////////////////////////////////////////////////////////
+Properties Map::getProperties()
+{
+    return properties;
+}  
 
 ///////////////////////////////////////////////////////////////////////////
 void Map::dump()
@@ -129,7 +181,7 @@ void Map::dump()
     properties.dump();
     for(auto tileset : tilesets)
         tileset.dump();
-    for(auto layer : layers)
+    for(auto layer : *this)
         layer.dump();
     for(auto objectgroup : objectgroups)
         objectgroup.dump();

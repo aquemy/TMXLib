@@ -86,7 +86,7 @@ Tileset::Tileset(const boost::property_tree::ptree &pt)
         else if(cat->first == "tile")
         {
             const ptree& node = cat->second;
-            tiles.push_back(Tile(node));
+            push_back(Tile(node));
         }
         else
             throw "Unknow subsection in Tileset";
@@ -97,61 +97,68 @@ Tileset::Tileset(const boost::property_tree::ptree &pt)
 }
 
 ///////////////////////////////////////////////////////////////////////////
-bool Tileset::load(std::string path)
+int Tileset::getFirstGid()
+{
+    return firstgid;
+}        
+      
+///////////////////////////////////////////////////////////////////////////    
+std::string Tileset::getSource()
+{
+    return source;
+}        
+  
+///////////////////////////////////////////////////////////////////////////  
+std::string Tileset::getName()
+{
+    return name;
+}        
+    
+///////////////////////////////////////////////////////////////////////////  
+int Tileset::getTilewidth()
+{
+    return tilewidth;
+}        
+    
+///////////////////////////////////////////////////////////////////////////     
+int Tileset::getTileheight()
+{
+    return tileheight;
+}        
+
+///////////////////////////////////////////////////////////////////////////        
+int Tileset::getSpacing()
+{
+    return spacing;
+}        
+
+///////////////////////////////////////////////////////////////////////////          
+int Tileset::getMargin()
+{
+    return margin;
+}        
+
+///////////////////////////////////////////////////////////////////////////          
+Image Tileset::getImage()
+{
+    return image;
+}        
+
+///////////////////////////////////////////////////////////////////////////           
+Properties Tileset::getProperties()
+{
+    return properties;
+}        
+
+///////////////////////////////////////////////////////////////////////////
+void Tileset::load(std::string path)
 {
     ptree pt;
     read_xml(path, pt);
 
     ptree::const_iterator child = pt.begin();
-    ptree node = child->second;
 
-    // On parse pour trouver des attributs de la map, des tilesets, layers, etc
-    for (ptree::const_iterator cat = node.begin(); cat != node.end(); ++cat)
-    {
-        if(cat->first == "<xmlattr>")
-        {
-            const ptree& node = cat->second;
-            for (ptree::const_iterator attr = node.begin(); attr != node.end(); ++attr)
-            {
-                if(!attr->second.data().empty())
-                {
-                    if(attr->first == "name")
-                        name = attr->second.data();
-                    else if(attr->first == "firstgid")
-                        std::istringstream(attr->second.data()) >> firstgid;
-                    else if(attr->first == "tilewidth")
-                        std::istringstream(attr->second.data()) >> tilewidth;
-                    else if(attr->first == "tileheight")
-                        std::istringstream(attr->second.data()) >> tileheight;
-                    else if(attr->first == "spacing")
-                        std::istringstream(attr->second.data()) >> spacing;
-                    else if(attr->first == "margin")
-                        std::istringstream(attr->second.data()) >> margin;
-                    else
-                        throw std::runtime_error("Unknow argument in Tileset");
-                }
-            }
-        }
-        else if(cat->first == "properties")
-        {
-            const ptree& node = cat->second;
-            properties = Properties(node);
-        }
-        else if(cat->first == "image")
-        {
-            const ptree& node = cat->second;
-            image = Image(node);
-        }
-        else if(cat->first == "tile")
-        {
-            const ptree& node = cat->second;
-            tiles.push_back(Tile(node));
-        }
-        else
-            throw std::runtime_error("Unknow subsection in Tileset");
-    }
-
-    return true;
+    Tileset(child->second);
 }
 
 ///////////////////////////////////////////////////////////////////////////
@@ -164,7 +171,7 @@ void Tileset::dump()
     std::cout << "## Spacing*Margin : " << spacing << "*" << margin << std::endl;
     properties.dump();
     image.dump();
-    for(auto tile : tiles)
+    for(auto tile : *this)
         tile.dump();
 }
 
