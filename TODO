@@ -4,15 +4,12 @@ In addition, a lot of features would be added in order to provide a complete and
 TODO List
 
 * Code & Best-practices
--> Const-correctness
--> Exceptions mecanism
 -> Exhaustive tests
 -> Move semantics
 -> Using STL inheritance for containers
 -> Examples
 
 * Features
--> Getters & Setters
 -> Compression ZLIB & GZIP
 -> Multithread loading
 

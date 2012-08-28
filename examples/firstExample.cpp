@@ -36,10 +36,8 @@ int main(void)
 {
     try
     {
-        tmx::Map test;
-    
-        test.load("test.tmx");
-        test.dump();
+        tmx::Map firstMap("test.tmx");
+        firstMap.dump();
     }
     catch (std::exception& e)
     {
