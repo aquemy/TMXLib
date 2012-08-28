@@ -89,7 +89,8 @@ Properties Tile::getProperties()
 void Tile::dump()
 {
     std::cout << std::setw(4) << id << " ";
-    properties.dump();
+    if(!properties.empty())
+        properties.dump();
 }
 
 } // namespace tmx

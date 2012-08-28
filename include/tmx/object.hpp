@@ -93,11 +93,11 @@ private:
     ///////////////////////////////////////////////////////////////////////////
     std::string name;      ///< Name of the object
     std::string type;      ///< Type of the object
-    int x;                 ///< Abscissa of the object
-    int y;                 ///< Ordinata of the object
-    int width;             ///< Width of the object
-    int height;            ///< Height of the object
-    int id;                ///< ID of the object
+    int x = 0;             ///< Abscissa of the object
+    int y = 0;             ///< Ordinata of the object
+    int width = 0;         ///< Width of the object
+    int height = 0;        ///< Height of the object
+    int id = 0;            ///< ID of the object
     Image image;           ///< Image of the object
     Polygon polygon;       ///< Polygon
     Polyline polyline;     ///< Polyline

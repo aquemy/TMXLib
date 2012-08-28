@@ -86,9 +86,9 @@ private:
     ///////////////////////////////////////////////////////////////////////////
     std::string name;      ///< Name of the objectgroup
     std::string color;     ///< Color of the objectgroup
-    int width;             ///< Witdh of the objectgroup
-    int height;            ///< Height of the objectgroup
-    float opacity;         ///< Opacity of the objectgroup
+    int width = 0;         ///< Witdh of the objectgroup
+    int height = 0;        ///< Height of the objectgroup
+    float opacity = 0;     ///< Opacity of the objectgroup
     Objects objects;       ///< Objects of the objectgroup
     Properties properties; ///< Properties of the objectgroup
     

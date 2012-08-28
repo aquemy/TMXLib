@@ -166,7 +166,8 @@ void Map::dump()
     std::cout << "# Dimension (w*h) : " << width << "*" << height << std::endl;
     std::cout << "# Tile Dimension (w*h) : " << tilewidth << "*" << tileheight << std::endl;
     std::cout << "# Properties :" << std::endl;
-    properties.dump();
+    if(!properties.empty())
+        properties.dump();
     for(auto tileset : tilesets)
         tileset.dump();
     for(auto layer : *this)

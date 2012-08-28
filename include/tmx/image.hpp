@@ -77,10 +77,10 @@ private :
     ///////////////////////////////////////////////////////////////////////////
     // Member data
     /////////////////////////////////////////////////////////////////////////// 
-    std::string source; ///< Path to the image
-    int trans;          ///< Opacity of the image
-    int width;          ///< Width of the image
-    int height;         ///< Height of the image
+    std::string source;     ///< Path to the image
+    int trans = 0;          ///< Opacity of the image
+    int width = 0;          ///< Width of the image
+    int height = 0;         ///< Height of the image
     
 };
 

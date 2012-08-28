@@ -90,13 +90,13 @@ private:
     ///////////////////////////////////////////////////////////////////////////
     // Member data
     ///////////////////////////////////////////////////////////////////////////
-    int firstgid;          ///< ID for the first tile of the tileset
+    int firstgid = 0;      ///< ID for the first tile of the tileset
     std::string source;    ///< Path to the tileset
     std::string name;      ///< Name of the tileset
-    int tilewidth;         ///< Width of a tile
-    int tileheight;        ///< Height of a tile
-    int spacing;           ///< Spacing of the tileset
-    int margin;            ///< Margin of the tileset
+    int tilewidth = 0;     ///< Width of a tile
+    int tileheight = 0;    ///< Height of a tile
+    int spacing = 0;       ///< Spacing of the tileset
+    int margin = 0;        ///< Margin of the tileset
     Image image;           ///< Image of the tileset
     Properties properties; ///< Properties of the tileset
     

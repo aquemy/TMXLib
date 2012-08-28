@@ -137,7 +137,8 @@ void Layer::dump()
     std::cout << "## Name : " << name << std::endl;
     std::cout << "## Layer Dimension (w*h) : " << width << "*" << height << std::endl;
     std::cout << "## Opacity : " << opacity << std::endl;
-    properties.dump();
+    if(!properties.empty())
+        properties.dump();
     data.dump();
 }
 

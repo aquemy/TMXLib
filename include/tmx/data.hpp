@@ -77,8 +77,8 @@ public:
     ///////////////////////////////////////////////////////////////////////////
     // Member data
     ///////////////////////////////////////////////////////////////////////////
-    Encoding encoding;       ///< Encoding for data
-    Compression compression; ///< Compression for data
+    Encoding encoding = Encoding::XML;           ///< Encoding for data
+    Compression compression = Compression::NONE; ///< Compression for data
     
 };
 

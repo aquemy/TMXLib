@@ -159,7 +159,8 @@ void Object::dump()
     std::cout << "### Type : " << type << std::endl;
     std::cout << "### Object placement : " << x << " - " << y << std::endl;
     std::cout << "### Object Dimension (w*h) : " << width << "*" << height << std::endl;
-    properties.dump();
+    if(!properties.empty())
+        properties.dump();
     
     polygon.dump();
     polyline.dump();

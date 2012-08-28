@@ -94,15 +94,15 @@ private :
     ///////////////////////////////////////////////////////////////////////////
     // Member data
     ///////////////////////////////////////////////////////////////////////////
-    std::string version;       ///< Version of TMX format
-    Orientation orientation;   ///< Orientation of the map
-    int width;                 ///< Width of the map
-    int height;                ///< Height of the map
-    int tilewidth;             ///< Width of a tile
-    int tileheight;            ///< Height of a tile
-    Tilesets tilesets;         ///< Tilesets of the map
-    Objectgroups objectgroups; ///< Objectgroups of the map
-    Properties properties;     ///< Properties of the map
+    std::string version;                               ///< Version of TMX format
+    Orientation orientation = Orientation::ORTHOGONAL; ///< Orientation of the map
+    int width = 0;                                     ///< Width of the map
+    int height = 0;                                    ///< Height of the map
+    int tilewidth = 0;                                 ///< Width of a tile
+    int tileheight = 0;                                ///< Height of a tile
+    Tilesets tilesets;                                 ///< Tilesets of the map
+    Objectgroups objectgroups;                         ///< Objectgroups of the map
+    Properties properties;                             ///< Properties of the map
     
 };
 

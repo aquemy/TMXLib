@@ -35,8 +35,9 @@ namespace tmx
 ///////////////////////////////////////////////////////////////////////////
 typedef enum
 {
-    GZIP = 0, ///< Compression GZIP
-    ZLIB = 1, ///< Compression ZLIB
+    NONE = 0,  ///< Default behavior
+    GZIP = 1, ///< Compression GZIP
+    ZLIB = 2, ///< Compression ZLIB
 } Compression;
 
 } // namespace tmx
