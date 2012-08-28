@@ -72,15 +72,9 @@ Objectgroup::Objectgroup(const boost::property_tree::ptree &pt)
             }
         }
         else if(cat->first == "properties")
-        {
-            const ptree& node = cat->second;
-            properties = Properties(node);
-        }
+            properties = Properties(cat->second);
         else if(cat->first == "object")
-        {
-            const ptree& node = cat->second;
-            objects.push_back(Object(node));
-        }
+            objects.push_back(Object(cat->second));
         else
             throw std::runtime_error("Unknow subsection in Objectgroup");
     }

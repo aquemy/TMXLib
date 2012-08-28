@@ -34,12 +34,16 @@
 
 int main(void)
 {
-
+    try
+    {
         tmx::Map test;
     
         test.load("test.tmx");
         test.dump();
-   
-    
+    }
+    catch (std::exception& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
     return 0;
 }

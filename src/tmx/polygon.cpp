@@ -64,6 +64,7 @@ Polygon::Polygon(const boost::property_tree::ptree &pt)
     }
 }
 
+///////////////////////////////////////////////////////////////////////////
 Points Polygon::getPoints()
 {
     return points;

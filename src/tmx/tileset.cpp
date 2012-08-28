@@ -74,20 +74,11 @@ Tileset::Tileset(const boost::property_tree::ptree &pt)
             }
         }
         else if(cat->first == "properties")
-        {
-            const ptree& node = cat->second;
-            properties = Properties(node);
-        }
+            properties = Properties(cat->second);
         else if(cat->first == "image")
-        {
-            const ptree& node = cat->second;
-            image = Image(node);
-        }
+            image = Image(cat->second);
         else if(cat->first == "tile")
-        {
-            const ptree& node = cat->second;
-            push_back(Tile(node));
-        }
+            push_back(Tile(cat->second));
         else
             throw "Unknow subsection in Tileset";
     }

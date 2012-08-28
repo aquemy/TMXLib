@@ -91,25 +91,13 @@ void Map::load(std::string path)
             }
         }
         else if(cat->first == "properties")
-        {
-            const ptree& node = cat->second;
-            properties = Properties(node);
-        }
+            properties = Properties(cat->second);
         else if(cat->first == "tileset")
-        {
-            const ptree& node = cat->second;
-            tilesets.push_back(Tileset(node));
-        }
+            tilesets.push_back(Tileset(cat->second));
         else if(cat->first == "layer")
-        {
-            const ptree& node = cat->second;
-            push_back(Layer(node));
-        }
+            push_back(Layer(cat->second));
         else if(cat->first == "objectgroup")
-        {
-            const ptree& node = cat->second;
-            objectgroups.push_back(Objectgroup(node));
-        }
+            objectgroups.push_back(Objectgroup(cat->second));
         else
             throw std::runtime_error("Unknow subsection in Map");
     }

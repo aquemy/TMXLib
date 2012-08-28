@@ -79,10 +79,7 @@ Data::Data(const boost::property_tree::ptree &pt)
             }
         }
         else if(encoding == Encoding::XML && cat->first == "tile")
-        {
-            const ptree& node = cat->second;
-            push_back(Tile(node));
-        }
+            push_back(Tile(cat->second));
     }
     
     // If encoding is not XML, we have to parse data differently

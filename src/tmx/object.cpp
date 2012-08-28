@@ -74,20 +74,11 @@ Object::Object(const boost::property_tree::ptree &pt)
             }
         }
         else if(cat->first == "polygon")
-        {
-            const ptree& node = cat->second;
-            polygon = Polygon(node);
-        }
+            polygon = Polygon(cat->second);
         else if(cat->first == "polyline")
-        {
-            const ptree& node = cat->second;
-            polyline = Polyline(node);
-        }
+            polyline = Polyline(cat->second);
         else if(cat->first == "properties")
-        {
-            const ptree& node = cat->second;
-            properties = Properties(node);
-        }
+            properties = Properties(cat->second);
         else
             throw std::runtime_error("Unknow subsection in Object");
     }
