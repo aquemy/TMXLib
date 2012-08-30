@@ -6,10 +6,10 @@ TODO List
 * Code & Best-practices
 -> Exhaustive tests
 -> Move semantics
--> Using STL inheritance for containers
 -> Examples
 
 * Features
+-> Base64
 -> Compression ZLIB & GZIP
 -> Multithread loading
 

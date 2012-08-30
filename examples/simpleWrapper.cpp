@@ -25,23 +25,60 @@
 ///////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
+#include <iomanip>
 #include <exception>
+#include <vector>
 
 #include <tmx/map.hpp>
 
 using namespace std;
 using namespace tmx;
 
+typedef struct {
+    unsigned width;
+    unsigned height;
+    vector<int> layer;
+} MyMap;
+
+void draw(MyMap);
+
 int main(void)
 {
     try
     {
-        Map firstMap("example.tmx");
-        firstMap.dump();
+        // We load a Map thanks to tmx
+        Map map("example.tmx");
+        
+        // We create our own (basic map)
+        MyMap myMap;
+        
+        // Define how using tmx information with our map
+        myMap.width = map.getWidth();
+        myMap.height = map.getHeight();
+        
+        // For the instance, we use only the first layer. 
+        // Each tile is represented by its Id on the tileset.
+        for(int i = 0; i < myMap.width*myMap.height; i++)
+            myMap.layer.push_back(map[0].getData()[i].getId());
+
+        // Let's draw our map on the screen with our powerful drawing function !
+        draw(myMap);
     }
     catch (exception& e)
     {
         cout << e.what() << endl;
     }
     return 0;
+}
+
+void draw(MyMap map)
+{
+    for(int i = 0; i < map.width; i++)
+    {
+        for(int j = 0; j < map.height; j++)
+        {
+            cout << setw(4) << map.layer[i+j*map.height] << " ";
+        }
+        cout << endl;
+    }
 }

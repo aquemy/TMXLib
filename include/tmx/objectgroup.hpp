@@ -43,7 +43,7 @@ namespace tmx
 /// \brief Objectgroups contain objects that share properties
 ///
 ///////////////////////////////////////////////////////////////////////////
-class Objectgroup
+class Objectgroup : std::vector<Object>
 {
 public:
 
@@ -69,8 +69,7 @@ public:
     std::string getColor();     
     int getWidth();             
     int getHeight();            
-    float getOpacity();         
-    Objects getObjects();       
+    float getOpacity();             
     Properties getProperties();
         
     ///////////////////////////////////////////////////////////////////////////
@@ -89,7 +88,6 @@ private:
     int width = 0;         ///< Witdh of the objectgroup
     int height = 0;        ///< Height of the objectgroup
     float opacity = 0;     ///< Opacity of the objectgroup
-    Objects objects;       ///< Objects of the objectgroup
     Properties properties; ///< Properties of the objectgroup
     
 };

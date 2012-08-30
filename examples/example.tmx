@@ -6,7 +6,7 @@
   <property name="fs" value=""/>
   <property name="prop" value=""/>
  </properties>
- <tileset firstgid="1" source="1.tsx"/>
+ <tileset firstgid="1" source="example.tsx"/>
  <tileset firstgid="1281" name="Test" tilewidth="32" tileheight="32" spacing="2" margin="1">
   <properties>
    <property name="sqfqsf" value="qsfsq"/>

@@ -25,7 +25,9 @@
 ///////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
+#include <iomanip>
 #include <exception>
+#include <vector>
 
 #include <tmx/map.hpp>
 
@@ -36,8 +38,14 @@ int main(void)
 {
     try
     {
-        Map firstMap("example.tmx");
-        firstMap.dump();
+        Map map("example.tmx");
+        
+        // Let's try to iterate trough our map and layers
+        for(auto layer : map)
+            for(auto tile : layer.getData())
+                cout << setw(4) << tile.getId() << " ";
+                
+        cout << endl;
     }
     catch (exception& e)
     {

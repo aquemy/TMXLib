@@ -104,8 +104,6 @@ private:
     Properties properties; ///< Properties of the object
     
 };
-    
-using Objects = std::vector<Object>;
 
 } // namespace tmx
 

@@ -74,7 +74,7 @@ Objectgroup::Objectgroup(const boost::property_tree::ptree &pt)
         else if(cat->first == "properties")
             properties = Properties(cat->second);
         else if(cat->first == "object")
-            objects.push_back(Object(cat->second));
+            push_back(Object(cat->second));
         else
             throw std::runtime_error("Unknow subsection in Objectgroup");
     }
@@ -108,13 +108,7 @@ int Objectgroup::getHeight()
 float Objectgroup::getOpacity()
 {
     return opacity;
-}        
-    
-///////////////////////////////////////////////////////////////////////////     
-Objects Objectgroup::getObjects()
-{
-    return objects;
-}        
+}             
      
 ///////////////////////////////////////////////////////////////////////////  
 Properties Objectgroup::getProperties()
@@ -131,7 +125,7 @@ void Objectgroup::dump()
     std::cout << "## Objectgroup Dimension (w*h) : " << width << "*" << height << std::endl;
     std::cout << "## Opacity : " << opacity << std::endl;
     properties.dump();
-    for(auto object : objects)
+    for(auto object : *this)
         object.dump();
 }
 
