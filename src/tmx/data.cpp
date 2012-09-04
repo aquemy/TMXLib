@@ -105,7 +105,7 @@ Encoding Data::getEncoding()
 }
 
 ///////////////////////////////////////////////////////////////////////////
-Compression Data::getcompression()
+Compression Data::getCompression()
 {
     return compression;
 }
