@@ -32,6 +32,10 @@
 #include <string>
 #include <sstream>
 
+#include <boost/iostreams/filtering_stream.hpp>
+#include <boost/iostreams/copy.hpp>
+#include <boost/iostreams/filter/gzip.hpp>
+#include <boost/iostreams/filter/zlib.hpp>
 #include <boost/regex.hpp>
 
 #include <tmx/tmx>
@@ -43,7 +47,9 @@ Points parsePoints(const std::string str)
 {
     Points points;                                        
     Point p;
+    // Looking for a pair of points
     boost::regex re("(-?\\d*)\\,(-?\\d*)");
+    
     boost::match_results<std::string::iterator> matches;  
     std::string buf;           
     std::stringstream ss(str);
@@ -52,6 +58,7 @@ Points parsePoints(const std::string str)
     {
         if(boost::regex_search(begin(buf), end(buf), matches, re))
         {
+            // matches[0] corresponds to the entiere string
             std::istringstream(matches[1]) >> p.first;
             std::istringstream(matches[2]) >> p.second;
             points.insert(p);
@@ -62,77 +69,41 @@ Points parsePoints(const std::string str)
 }
 
 ///////////////////////////////////////////////////////////////////////////
-std::vector<Tile> parseTilesFromCSV(const std::string str)
+std::string DecodeBase64(const std::string str)
 {
-    std::vector<Tile> tiles;                                        
-    int id; 
-    std::string buf;           
-    std::stringstream ss(str);
-    
-    while (std::getline(ss, buf, ',')) 
-    {
-        std::istringstream(buf) >> id;
-        tiles.push_back(Tile(id));
-    }
-    
-    return tiles;
+    return base64_decode(str);
 }
 
 ///////////////////////////////////////////////////////////////////////////
-std::vector<Tile> parseTilesFromBase64(const std::string str, const Compression compression)
+std::string DecompressGZIP(const std::string &compressedString)
 {
-    static const unsigned FLIPPED_HORIZONTALLY_FLAG = 0x80000000;
-    static const unsigned FLIPPED_VERTICALLY_FLAG   = 0x40000000;
-    static const unsigned FLIPPED_DIAGONALLY_FLAG   = 0x20000000;
+    boost::iostreams::filtering_streambuf<boost::iostreams::input> in;
     
-    std::vector<Tile> tiles;
+    // Push the decompressor and data in the stream
+    in.push(boost::iostreams::gzip_decompressor());
+    in.push(boost::make_iterator_range(compressedString));
     
-    // Copying the raw data
-    std::string copy = str;
+    // Copy the result
+    std::string decompressed;
+    boost::iostreams::copy(in,boost::iostreams::back_inserter(decompressed));
 
-    // Preparing data by removing useless characters
-    for(std::string::iterator it = begin(copy); it != end(copy); ++it)
-    {
-        if(*it == ' ' || *it == '\n') {
-            copy.erase(it,it+1);
-            it--;
-        } 
-    }
-    
-    // Decoding the string
-    std::string text = base64_decode(copy);
-    
-    // Preparing the data
-    unsigned char data[text.size()];
-    memcpy(data, text.c_str(), text.size());
-    
-    unsigned id = 0;
-    bool flipped_horizontally = false;
-    bool flipped_vertically = false;
-    bool flipped_diagonally = false;
-    
-    // Parsing data to extract tiles
-    for (int i = 0; i < text.size(); i+=4) 
-    {  
-        id = data[i] |
-             data[i + 1] << 8 |
-             data[i + 2] << 16 |
-             data[i + 3] << 24;
-                                  
-        // Read out the flags
-        flipped_horizontally = (id & FLIPPED_HORIZONTALLY_FLAG);
-        flipped_vertically = (id & FLIPPED_VERTICALLY_FLAG);
-        flipped_diagonally = (id & FLIPPED_DIAGONALLY_FLAG);
+    return decompressed;
+}
 
-        // Clear the flags
-        id &= ~(FLIPPED_HORIZONTALLY_FLAG |
-                FLIPPED_VERTICALLY_FLAG |
-                FLIPPED_DIAGONALLY_FLAG);
-
-        tiles.push_back(Tile(id));
-    }
+///////////////////////////////////////////////////////////////////////////
+std::string DecompressZLIB(const std::string &compressedString)
+{
+    boost::iostreams::filtering_streambuf<boost::iostreams::input> in;
     
-    return tiles;
-}    
+    // Push the decompressor and data in the stream
+    in.push(boost::iostreams::zlib_decompressor());
+    in.push(boost::make_iterator_range(compressedString));
+    
+    // Copy the result
+    std::string decompressed;
+    boost::iostreams::copy(in,boost::iostreams::back_inserter(decompressed));
+
+    return decompressed;
+}
     
 } // namespace tmx

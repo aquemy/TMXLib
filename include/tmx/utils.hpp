@@ -56,32 +56,11 @@ namespace tmx
 ///////////////////////////////////////////////////////////////////////////
 Points parsePoints(const std::string str);
 
-///////////////////////////////////////////////////////////////////////////
-/// \brief Parse tiles from the CSV format
-///
-/// As tiles using CSV are represented by a string, we need to parse
-/// it using regular expressions.
-///
-/// \param str String containing tiles information
-///
-/// \return Tiles extracted from string
-///
-///////////////////////////////////////////////////////////////////////////
-std::vector<Tile> parseTilesFromCSV(const std::string str);
+std::string DecodeBase64(const std::string str);
 
-///////////////////////////////////////////////////////////////////////////
-/// \brief Parse tiles from the Base64 format
-///
-/// As tiles using Base64 are represented by a string, we need to parse
-/// it using regular expressions.
-///
-/// \param str String containing tiles information
-///
-/// \return Tiles extracted from string
-///
-///////////////////////////////////////////////////////////////////////////
+std::string DecompressGZIP(const std::string &compressedString);
 
-std::vector<Tile> parseTilesFromBase64(const std::string str, const Compression compression);
+std::string DecompressZLIB(const std::string &compressedString);
 
 }
 

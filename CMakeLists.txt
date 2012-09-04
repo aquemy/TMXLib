@@ -22,11 +22,18 @@ set(VERSION_PATCH 0)
 # Dependencies
 ## Required
 include(FindBoost)
-find_package(Boost 1.49.0)
+find_package(Boost REQUIRED)
 
 if(NOT DEFINED Boost_FOUND)
     message(FATAL_ERROR "Boost not found")
-endif(NOT DEFINED Boost_FOUND)
+endif()
+
+find_package(ZLIB REQUIRED)
+
+if (NOT DEFINED ZLIB_FOUND )
+    message(FATAL_ERROR "Zlib not found")
+endif()
+
 
 ## Optional
 include(FindDoxygen)
