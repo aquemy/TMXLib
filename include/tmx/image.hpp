@@ -62,7 +62,7 @@ public :
     Image(const boost::property_tree::ptree &pt);
     
     std::string getSource();
-    int getTrans();
+    std::string getTrans();
     int getWidth();
     int getHeight();
     
@@ -78,7 +78,7 @@ private :
     // Member data
     /////////////////////////////////////////////////////////////////////////// 
     std::string source;     ///< Path to the image
-    int trans = 0;          ///< Opacity of the image
+    std::string trans;      ///< Transparent color of the image
     int width = 0;          ///< Width of the image
     int height = 0;         ///< Height of the image
     

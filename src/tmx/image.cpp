@@ -57,7 +57,7 @@ Image::Image(const boost::property_tree::ptree &pt)
                     if(attr->first == "source")
                         source = attr->second.data();
                     else if(attr->first == "trans")
-                        std::istringstream(attr->second.data()) >> trans;
+                         trans = attr->second.data();
                     else if(attr->first == "width")
                         std::istringstream(attr->second.data()) >> width;
                     else if(attr->first == "height")
@@ -77,7 +77,7 @@ std::string Image::getSource()
 }
 
 ///////////////////////////////////////////////////////////////////////////
-int Image::getTrans()
+std::string Image::getTrans()
 {
     return trans;
 }
