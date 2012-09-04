@@ -115,6 +115,7 @@ protected :
     /// it using regular expressions.
     ///
     /// \param str String containing tiles information
+    /// \param compression Compression type
     ///
     /// \return Tiles extracted from string
     ///

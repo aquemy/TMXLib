@@ -56,10 +56,39 @@ namespace tmx
 ///////////////////////////////////////////////////////////////////////////
 Points parsePoints(const std::string str);
 
+///////////////////////////////////////////////////////////////////////////
+/// \brief Parse a string containing points
+///
+/// As poligons and polylines are represented by a string, we need to parse
+/// it using regular expressions.
+/// Note that, at the moment, the function uses Boost::regex instead of
+/// C++11 regex. This is due to the fact that gcc does not implement regex.
+///
+/// \param str String containing tiles information
+///
+/// \return Points extracted from string
+///
+///////////////////////////////////////////////////////////////////////////
 std::string DecodeBase64(const std::string str);
 
+///////////////////////////////////////////////////////////////////////////
+/// \brief Decompress string data compressed with GZIP
+///
+/// \param str Compressed string
+///
+/// \return Decompressed string
+///
+///////////////////////////////////////////////////////////////////////////
 std::string DecompressGZIP(const std::string &compressedString);
 
+///////////////////////////////////////////////////////////////////////////
+/// \brief Decompress string data compressed with ZLIB
+///
+/// \param str Compressed string
+///
+/// \return Decompressed string
+///
+///////////////////////////////////////////////////////////////////////////
 std::string DecompressZLIB(const std::string &compressedString);
 
 }
