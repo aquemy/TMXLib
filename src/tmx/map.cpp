@@ -98,6 +98,8 @@ void Map::load(std::string path)
             push_back(Layer(cat->second));
         else if(cat->first == "objectgroup")
             objectgroups.push_back(Objectgroup(cat->second));
+        else if(cat->first == "imagelayer")
+            ;
         else
             throw std::runtime_error("Unknow subsection in Map");
     }

@@ -13,6 +13,7 @@ set(TMX_SRC
     polygon.cpp
     polyline.cpp
     utils.cpp
+    base64/base64.cpp
     )
 
 # Executable

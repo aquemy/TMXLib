@@ -49,7 +49,7 @@ namespace tmx
 /// Note that, at the moment, the function uses Boost::regex instead of
 /// C++11 regex. This is due to the fact that gcc does not implement regex.
 ///
-/// \param path Path to the tmx file your would like to load
+/// \param str String containing tiles information
 ///
 /// \return Points extracted from string
 ///
@@ -62,12 +62,26 @@ Points parsePoints(const std::string str);
 /// As tiles using CSV are represented by a string, we need to parse
 /// it using regular expressions.
 ///
-/// \param path Path to the tmx file your would like to load
+/// \param str String containing tiles information
 ///
 /// \return Tiles extracted from string
 ///
 ///////////////////////////////////////////////////////////////////////////
 std::vector<Tile> parseTilesFromCSV(const std::string str);
+
+///////////////////////////////////////////////////////////////////////////
+/// \brief Parse tiles from the Base64 format
+///
+/// As tiles using Base64 are represented by a string, we need to parse
+/// it using regular expressions.
+///
+/// \param str String containing tiles information
+///
+/// \return Tiles extracted from string
+///
+///////////////////////////////////////////////////////////////////////////
+
+std::vector<Tile> parseTilesFromBase64(const std::string str, const Compression compression);
 
 }
 

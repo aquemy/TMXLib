@@ -46,5 +46,6 @@
 #include <tmx/tileset.hpp>
 #include <tmx/utils.hpp>
 #include <tmx/point.hpp>
+#include <tmx/base64/base64.hpp>
 
 #endif

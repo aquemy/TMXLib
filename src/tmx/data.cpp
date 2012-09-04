@@ -91,14 +91,9 @@ Data::Data(const boost::property_tree::ptree &pt)
     }
     else if(encoding == Encoding::BASE64)
     {
-        if(compression == Compression::GZIP)
-        {
-            throw std::runtime_error("The GZIP compression is not available at the moment");
-        }
-        else if(compression == Compression::ZLIB)
-        {
-            throw std::runtime_error("The ZLIB compression is not available at the moment");
-        }
+        std::vector<Tile> tiles = parseTilesFromBase64(node.data(),compression);
+        for(auto tile : tiles)
+            push_back(tile);
     }
 }
 

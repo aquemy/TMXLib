@@ -76,6 +76,63 @@ std::vector<Tile> parseTilesFromCSV(const std::string str)
     }
     
     return tiles;
+}
+
+///////////////////////////////////////////////////////////////////////////
+std::vector<Tile> parseTilesFromBase64(const std::string str, const Compression compression)
+{
+    static const unsigned FLIPPED_HORIZONTALLY_FLAG = 0x80000000;
+    static const unsigned FLIPPED_VERTICALLY_FLAG   = 0x40000000;
+    static const unsigned FLIPPED_DIAGONALLY_FLAG   = 0x20000000;
+    
+    std::vector<Tile> tiles;
+    
+    // Copying the raw data
+    std::string copy = str;
+
+    // Preparing data by removing useless characters
+    for(std::string::iterator it = begin(copy); it != end(copy); ++it)
+    {
+        if(*it == ' ' || *it == '\n') {
+            copy.erase(it,it+1);
+            it--;
+        } 
+    }
+    
+    // Decoding the string
+    std::string text = base64_decode(copy);
+    
+    // Preparing the data
+    unsigned char data[text.size()];
+    memcpy(data, text.c_str(), text.size());
+    
+    unsigned id = 0;
+    bool flipped_horizontally = false;
+    bool flipped_vertically = false;
+    bool flipped_diagonally = false;
+    
+    // Parsing data to extract tiles
+    for (int i = 0; i < text.size(); i+=4) 
+    {  
+        id = data[i] |
+             data[i + 1] << 8 |
+             data[i + 2] << 16 |
+             data[i + 3] << 24;
+                                  
+        // Read out the flags
+        flipped_horizontally = (id & FLIPPED_HORIZONTALLY_FLAG);
+        flipped_vertically = (id & FLIPPED_VERTICALLY_FLAG);
+        flipped_diagonally = (id & FLIPPED_DIAGONALLY_FLAG);
+
+        // Clear the flags
+        id &= ~(FLIPPED_HORIZONTALLY_FLAG |
+                FLIPPED_VERTICALLY_FLAG |
+                FLIPPED_DIAGONALLY_FLAG);
+
+        tiles.push_back(Tile(id));
+    }
+    
+    return tiles;
 }    
     
 } // namespace tmx
