@@ -8,8 +8,9 @@ TODO List
 -> Move semantics
 -> Examples
 
+
 * Features
--> Base64
--> Compression ZLIB & GZIP
+-> Wrappers for SFML and (maybe) SDL
 -> Multithread loading
+-> Type-erasure for layers, objectgroups and imagelayer to conserv order
 
