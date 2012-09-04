@@ -10,13 +10,9 @@
 #
 # example:
 #   find_package(TMX REQUIRED)
-#   include_directories(${TMW_INCLUDE_DIR})
+#   include_directories(${TMX_INCLUDE_DIR})
 #   add_executable(example ...)
 #   target_link_libraries(examplep ${TMX_LIBRARIES})
-
-if(UNIX)
-    set(INSTALL_SUB_DIR /tmx)
-endif()
 
 # enabled components
 set(TMX_LIBRARIES_TO_FIND tmx)
@@ -26,7 +22,7 @@ set(BUILD_DIR build)
 
 # Path
 set(TMX_SRC_PATHS
-        ${TMX_ROOT}
+        ${TMX_ROOT}/include/
         $ENV{TMX_ROOT}
         /usr/local/
         /usr/
@@ -39,8 +35,7 @@ set(TMX_SRC_PATHS
 )
 
 find_path(TMX_INCLUDE_DIR tmx
-          PATH_SUFFIXES include${INSTALL_SUB_DIR}/tmx include
-          PATHS ${TMX_SRC_PATHS})         
+          PATHS ${TMX_SRC_PATHS})
 
 # find the requested modules
 set(TMX_FOUND true) # will be set to false if one of the required modules is not found
@@ -54,8 +49,8 @@ set(FIND_TMX_LIB_PATHS
         /opt/local/ # DarwinPorts
         /opt/csw/ # Blastwave
         /opt/
-        [KEY_CURRENT_USER\\Software\\Inria\\TMX]/local
-        [HKEY_LOCAL_MACHINE\\Software\\Inria\\TMX]/local
+        [KEY_CURRENT_USER\\Software\\TMX]/local
+        [HKEY_LOCAL_MACHINE\\Software\\TMX]/local
 )
 
 #Suffixes
