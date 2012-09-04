@@ -94,6 +94,8 @@ void Map::load(std::string path)
             properties = Properties(cat->second);
         else if(cat->first == "tileset")
             tilesets.push_back(Tileset(cat->second));
+        else if(cat->first == "imagelayer")
+            imagelayers.push_back(Imagelayer(cat->second));
         else if(cat->first == "layer")
             push_back(Layer(cat->second));
         else if(cat->first == "objectgroup")
@@ -146,6 +148,12 @@ Tilesets Map::getTilesets()
 {
     return tilesets;
 }      
+
+///////////////////////////////////////////////////////////////////////////       
+Imagelayers Map::getImagelayers()
+{
+    return imagelayers;
+}    
     
 ///////////////////////////////////////////////////////////////////////////       
 Objectgroups Map::getObjectgroups()
@@ -172,6 +180,8 @@ void Map::dump()
         properties.dump();
     for(auto tileset : tilesets)
         tileset.dump();
+    for(auto imagelayer : imagelayers)
+        imagelayer.dump();
     for(auto layer : *this)
         layer.dump();
     for(auto objectgroup : objectgroups)

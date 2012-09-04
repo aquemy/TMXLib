@@ -35,6 +35,7 @@
 #include <tmx/properties.hpp>
 #include <tmx/tileset.hpp>
 #include <tmx/layer.hpp>
+#include <tmx/imagelayer.hpp>
 #include <tmx/objectgroup.hpp>
 
 namespace tmx
@@ -79,7 +80,8 @@ public :
     int getHeight();               
     int getTilewidth();           
     int getTileheight();            
-    Tilesets getTilesets();                   
+    Tilesets getTilesets();
+    Imagelayers getImagelayers();                
     Objectgroups getObjectgroups(); 
     Properties getProperties();    
     
@@ -101,6 +103,7 @@ private :
     int tilewidth = 0;                                 ///< Width of a tile
     int tileheight = 0;                                ///< Height of a tile
     Tilesets tilesets;                                 ///< Tilesets of the map
+    Imagelayers imagelayers;                           ///< Imagelayers of the map
     Objectgroups objectgroups;                         ///< Objectgroups of the map
     Properties properties;                             ///< Properties of the map
     

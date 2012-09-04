@@ -5,6 +5,7 @@ set(TMX_SRC
     tileset.cpp
     image.cpp
     layer.cpp
+    imagelayer.cpp
     data.cpp
     tile.cpp
     objectgroup.cpp
