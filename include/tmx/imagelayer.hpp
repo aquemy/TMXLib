@@ -44,7 +44,7 @@ namespace tmx
 /// \brief A class that stores Imagelayer description
 ///
 ///////////////////////////////////////////////////////////////////////////
-class Imagelayer : public std::vector<Tile>
+class Imagelayer
 {
 public:
 
