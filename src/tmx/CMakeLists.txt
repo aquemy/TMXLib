@@ -18,13 +18,11 @@ set(TMX_SRC
     )
 
 # Executable
-add_library(tmx SHARED ${TMX_SRC})
-
+######################################################################################
+### 1) Set paths
+######################################################################################
 set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/lib)
 
-#INSTALL(TARGETS tmx ARCHIVE DESTINATION lib COMPONENT libraries)
+add_library(tmx STATIC ${TMX_SRC})
 
-FILE(GLOB HDRS *.h tmx)
-INSTALL(FILES ${HDRS} DESTINATION include/tmx COMPONENT headers)
-
-set_target_properties(tmx PROPERTIES VERSION 0.1)
+install(TARGETS tmx ARCHIVE DESTINATION local/${LIB} COMPONENT libraries)

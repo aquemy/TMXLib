@@ -28,35 +28,25 @@ structure:
 
 .../                        
    |
+   +-- AUTHORS                  Authors list 
    |
-   +-- AUTHORS				      Authors list 
+   +-- cmake/                   CMake dir
    |
+   +-- CMakeLists.txt           For building process
    |
-   +-- cmake/				      CMake dir
+   +-- doc                      For doxygen
    |
+   +-- examples                 Some examples of use
    |
-   +-- CMakeLists.txt			  For building process
+   +-- INSTALL                  INSTALL file
    |
+   +-- include                  Include files
    |
-   +-- doc                        For doxygen
+   +-- LICENCE                  Licence contents
    |
+   +-- src                      Sources
    |
-   +-- examples                   Some examples of use
-   |
-   |
-   +-- INSTALL                    INSTALL file
-   |
-   |
-   +-- include                    Include files
-   |
-   |
-   +-- LICENCE				      Licence contents
-   |
-   |
-   +-- src 			              Sources
-   |
-   |
-   +-- README				      README file
+   +-- README                   README file
 
 ==========================================================================================
               NOTES

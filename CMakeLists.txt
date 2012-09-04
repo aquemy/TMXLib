@@ -68,7 +68,13 @@ add_subdirectory(test)
 add_subdirectory(doc)
 
 ######################################################################################
-### 5) Packaging : only in release !
+### 5) Installation
+######################################################################################
+
+install(DIRECTORY include DESTINATION local COMPONENT headers)
+
+######################################################################################
+### 6) Packaging : only in release !
 ######################################################################################
 
 if("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
