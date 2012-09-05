@@ -43,7 +43,7 @@
 namespace tmx
 {
 ///////////////////////////////////////////////////////////////////////////
-Points parsePoints(const std::string str)
+Points parsePoints(const std::string &str)
 {
     Points points;                                        
     Point p;
@@ -69,7 +69,7 @@ Points parsePoints(const std::string str)
 }
 
 ///////////////////////////////////////////////////////////////////////////
-std::string DecodeBase64(const std::string str)
+std::string DecodeBase64(const std::string &str)
 {
     return base64_decode(str);
 }

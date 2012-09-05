@@ -8,6 +8,7 @@ TODO List
 -> Move semantics
 -> Examples
 
+Well, let's sum up : const-correctness, abstract parser (in order to avoid boost), in-memory loader, common base for layers, and for objects in general, complete examples
 
 * Features
 -> Wrappers for SFML and (maybe) SDL

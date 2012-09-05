@@ -71,31 +71,31 @@ Image::Image(const boost::property_tree::ptree &pt)
 }
 
 ///////////////////////////////////////////////////////////////////////////
-std::string Image::getSource()
+std::string Image::getSource() const
 {
     return source;
 }
 
 ///////////////////////////////////////////////////////////////////////////
-std::string Image::getTrans()
+std::string Image::getTrans() const
 {
     return trans;
 }
 
 ///////////////////////////////////////////////////////////////////////////
-int Image::getWidth()
+int Image::getWidth() const
 {
     return width;
 }
 
 ///////////////////////////////////////////////////////////////////////////
-int Image::getHeight()
+int Image::getHeight() const
 {
     return height;
 }
 
 ///////////////////////////////////////////////////////////////////////////
-void Image::dump()
+void Image::dump() const
 {
     std::cout << "#######################################################" << std::endl;
     std::cout << "### Source : " << source << std::endl;

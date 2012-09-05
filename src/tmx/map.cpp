@@ -108,67 +108,67 @@ void Map::load(std::string path)
 }
 
 ///////////////////////////////////////////////////////////////////////////
-std::string Map::getVersion()
+std::string Map::getVersion() const
 {
     return version;
 }     
 
 ///////////////////////////////////////////////////////////////////////////
-Orientation Map::getOrientation()
+Orientation Map::getOrientation() const
 {
     return orientation;
 }     
  
 ///////////////////////////////////////////////////////////////////////////
-int Map::getWidth()
+int Map::getWidth() const
 {
     return width;
 }     
    
 ///////////////////////////////////////////////////////////////////////////             
-int Map::getHeight()
+int Map::getHeight() const
 {
     return height;
 }     
     
 ///////////////////////////////////////////////////////////////////////////          
-int Map::getTilewidth()
+int Map::getTilewidth() const
 {
     return tilewidth;
 }     
    
 ///////////////////////////////////////////////////////////////////////////        
-int Map::getTileheight()
+int Map::getTileheight() const
 {
     return tileheight;
 }     
     
 ///////////////////////////////////////////////////////////////////////////       
-Tilesets Map::getTilesets()
+Tilesets Map::getTilesets() const
 {
     return tilesets;
 }      
 
 ///////////////////////////////////////////////////////////////////////////       
-Imagelayers Map::getImagelayers()
+Imagelayers Map::getImagelayers() const
 {
     return imagelayers;
 }    
     
 ///////////////////////////////////////////////////////////////////////////       
-Objectgroups Map::getObjectgroups()
+Objectgroups Map::getObjectgroups() const
 {
     return objectgroups;
 }     
 
 ///////////////////////////////////////////////////////////////////////////
-Properties Map::getProperties()
+Properties Map::getProperties() const
 {
     return properties;
 }  
 
 ///////////////////////////////////////////////////////////////////////////
-void Map::dump()
+void Map::dump() const
 {
     std::cout << "#######################################################" << std::endl;
     std::cout << "# Version : " << version << std::endl;

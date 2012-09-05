@@ -99,19 +99,19 @@ Data::Data(const boost::property_tree::ptree &pt)
 }
 
 ///////////////////////////////////////////////////////////////////////////
-Encoding Data::getEncoding()
+Encoding Data::getEncoding() const
 {
     return encoding;
 }
 
 ///////////////////////////////////////////////////////////////////////////
-Compression Data::getCompression()
+Compression Data::getCompression() const
 {
     return compression;
 }
 
 ///////////////////////////////////////////////////////////////////////////
-void Data::dump()
+void Data::dump() const
 {
     std::cout << "#######################################################" << std::endl;
     std::cout << "### Encoding : " << encoding << std::endl;

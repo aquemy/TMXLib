@@ -75,38 +75,38 @@ Imagelayer::Imagelayer(const boost::property_tree::ptree &pt)
 }
   
 ///////////////////////////////////////////////////////////////////////////  
-std::string Imagelayer::getName()
+std::string Imagelayer::getName() const
 {
     return name;
 }        
     
 ///////////////////////////////////////////////////////////////////////////  
-int Imagelayer::getWidth()
+int Imagelayer::getWidth() const
 {
     return width;
 }        
     
 ///////////////////////////////////////////////////////////////////////////     
-int Imagelayer::getHeight()
+int Imagelayer::getHeight() const
 {
     return height;
 }         
 
 ///////////////////////////////////////////////////////////////////////////          
-Image Imagelayer::getImage()
+Image Imagelayer::getImage() const
 {
     return image;
 }        
 
 ///////////////////////////////////////////////////////////////////////////           
-Properties Imagelayer::getProperties()
+Properties Imagelayer::getProperties() const
 {
     return properties;
 }        
 
 
 ///////////////////////////////////////////////////////////////////////////
-void Imagelayer::dump()
+void Imagelayer::dump() const
 {
     std::cout << "#######################################################" << std::endl;
     std::cout << "## Name : " << name << std::endl;

@@ -69,7 +69,7 @@ public:
     /// \brief Print on the standard output the object
     ///
     ///////////////////////////////////////////////////////////////////////////
-    void dump();
+    void dump() const;
     
 };
 

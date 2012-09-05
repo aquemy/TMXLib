@@ -77,61 +77,61 @@ Layer::Layer(const boost::property_tree::ptree &pt)
 }
 
 ///////////////////////////////////////////////////////////////////////////
-std::string Layer::getName()
+std::string Layer::getName() const
 {
     return name;
 }
 
 ///////////////////////////////////////////////////////////////////////////
-int Layer::getX()
+int Layer::getX() const
 {
     return x;
 }           
 
 ///////////////////////////////////////////////////////////////////////////
-int Layer::getY()
+int Layer::getY() const
 {
     return y;
 }            
    
 ///////////////////////////////////////////////////////////////////////////
-int Layer::getWidth()
+int Layer::getWidth() const
 {
     return width;
 }           
 
 ///////////////////////////////////////////////////////////////////////////
-int Layer::getHeight()
+int Layer::getHeight() const
 {
     return height;
 }      
 
 ///////////////////////////////////////////////////////////////////////////
-float Layer::getOpacity()
+float Layer::getOpacity() const
 {
     return opacity;
 }       
 
 ///////////////////////////////////////////////////////////////////////////
-bool Layer::getVisible()
+bool Layer::getVisible() const
 {
     return visible;
 }         
 
 ///////////////////////////////////////////////////////////////////////////
-Data Layer::getData()
+Data Layer::getData() const
 {
     return data;
 }             
 
 ///////////////////////////////////////////////////////////////////////////
-Properties Layer::getProperties()
+Properties Layer::getProperties() const
 {
     return properties;
 }
 
 ///////////////////////////////////////////////////////////////////////////
-void Layer::dump()
+void Layer::dump() const
 {
     std::cout << "#######################################################" << std::endl;
     std::cout << "## Name : " << name << std::endl;

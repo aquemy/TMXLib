@@ -65,13 +65,13 @@ Polygon::Polygon(const boost::property_tree::ptree &pt)
 }
 
 ///////////////////////////////////////////////////////////////////////////
-Points Polygon::getPoints()
+Points Polygon::getPoints() const
 {
     return points;
 }
 
 ///////////////////////////////////////////////////////////////////////////
-void Polygon::dump()
+void Polygon::dump() const
 {
     if(!points.empty())
     {

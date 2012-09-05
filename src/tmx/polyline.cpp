@@ -65,13 +65,13 @@ Polyline::Polyline(const boost::property_tree::ptree &pt)
 }
 
 ///////////////////////////////////////////////////////////////////////////
-Points Polyline::getPoints()
+Points Polyline::getPoints() const
 {
     return points;
 }
 
 ///////////////////////////////////////////////////////////////////////////
-void Polyline::dump()
+void Polyline::dump() const
 {
     if(!points.empty())
     {

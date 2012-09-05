@@ -79,7 +79,7 @@ Properties::Properties(const boost::property_tree::ptree &pt)
 }
 
 ///////////////////////////////////////////////////////////////////////////
-void Properties::dump()
+void Properties::dump() const
 {
     if(!empty())
     {

@@ -85,73 +85,73 @@ Object::Object(const boost::property_tree::ptree &pt)
 }
 
 ///////////////////////////////////////////////////////////////////////////
-std::string Object::getName()
+std::string Object::getName() const
 {
     return name;
 }        
 
 ///////////////////////////////////////////////////////////////////////////
-std::string Object::getType()
+std::string Object::getType() const
 {
     return type;
 }        
   
 ///////////////////////////////////////////////////////////////////////////   
-int Object::getX()
+int Object::getX() const
 {
     return x;
 }        
      
 ///////////////////////////////////////////////////////////////////////////           
-int Object::getY()
+int Object::getY() const
 {
     return y;
 }        
      
 ///////////////////////////////////////////////////////////////////////////           
-int Object::getWidth()
+int Object::getWidth() const
 {
     return width;
 }        
      
 ///////////////////////////////////////////////////////////////////////////       
-int Object::getHeight()
+int Object::getHeight() const
 {
     return height;
 }        
      
 ///////////////////////////////////////////////////////////////////////////      
-int Object::getId()
+int Object::getId() const
 {
     return id;
 }        
     
 ///////////////////////////////////////////////////////////////////////////           
-Image Object::getImage()
+Image Object::getImage() const
 {
     return image;
 }        
     
 ///////////////////////////////////////////////////////////////////////////      
-Polygon Object::getPolygon()
+Polygon Object::getPolygon() const
 {
     return polygon;
 }        
     
 ///////////////////////////////////////////////////////////////////////////   
-Polyline Object::getPolyline()
+Polyline Object::getPolyline() const
 {
     return polyline;
 }        
   
 ///////////////////////////////////////////////////////////////////////////   
-Properties Object::getProperties()
+Properties Object::getProperties() const
 {
     return properties;
 }        
 
 ///////////////////////////////////////////////////////////////////////////
-void Object::dump()
+void Object::dump() const
 {
     std::cout << "#######################################################" << std::endl;
     std::cout << "### Name : " << name << std::endl;

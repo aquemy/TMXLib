@@ -81,43 +81,43 @@ Objectgroup::Objectgroup(const boost::property_tree::ptree &pt)
 }
 
 ///////////////////////////////////////////////////////////////////////////
-std::string Objectgroup::getName()
+std::string Objectgroup::getName() const
 {
     return name;
 }        
    
 ///////////////////////////////////////////////////////////////////////////   
-std::string Objectgroup::getColor()
+std::string Objectgroup::getColor() const
 {
     return color;
 }        
   
 ///////////////////////////////////////////////////////////////////////////   
-int Objectgroup::getWidth()
+int Objectgroup::getWidth() const
 {
     return width;
 }        
   
 ///////////////////////////////////////////////////////////////////////////           
-int Objectgroup::getHeight()
+int Objectgroup::getHeight() const
 {
     return height;
 }        
      
 ///////////////////////////////////////////////////////////////////////////       
-float Objectgroup::getOpacity()
+float Objectgroup::getOpacity() const
 {
     return opacity;
 }             
      
 ///////////////////////////////////////////////////////////////////////////  
-Properties Objectgroup::getProperties()
+Properties Objectgroup::getProperties() const
 {
     return properties;
 }        
 
 ///////////////////////////////////////////////////////////////////////////
-void Objectgroup::dump()
+void Objectgroup::dump() const
 {
     std::cout << "#######################################################" << std::endl;
     std::cout << "## Name : " << name << std::endl;

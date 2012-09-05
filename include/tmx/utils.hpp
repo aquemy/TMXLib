@@ -54,7 +54,7 @@ namespace tmx
 /// \return Points extracted from string
 ///
 ///////////////////////////////////////////////////////////////////////////
-Points parsePoints(const std::string str);
+Points parsePoints(const std::string &str);
 
 ///////////////////////////////////////////////////////////////////////////
 /// \brief Parse a string containing points
@@ -69,7 +69,7 @@ Points parsePoints(const std::string str);
 /// \return Points extracted from string
 ///
 ///////////////////////////////////////////////////////////////////////////
-std::string DecodeBase64(const std::string str);
+std::string DecodeBase64(const std::string &str);
 
 ///////////////////////////////////////////////////////////////////////////
 /// \brief Decompress string data compressed with GZIP

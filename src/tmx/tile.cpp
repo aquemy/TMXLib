@@ -74,19 +74,19 @@ Tile::Tile(const boost::property_tree::ptree &pt)
 }
 
 ///////////////////////////////////////////////////////////////////////////
-int Tile::getId()
+int Tile::getId() const
 {
     return id;
 }
 
 ///////////////////////////////////////////////////////////////////////////
-Properties Tile::getProperties()
+Properties Tile::getProperties() const
 {
     return properties;
 }
 
 ///////////////////////////////////////////////////////////////////////////
-void Tile::dump()
+void Tile::dump() const
 {
     std::cout << std::setw(4) << id << " ";
     if(!properties.empty())
