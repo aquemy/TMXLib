@@ -31,12 +31,13 @@
 // Headers
 ///////////////////////////////////////////////////////////////////////////
 
-#include <vector>
+#include <list>
 
 #include <boost/property_tree/ptree.hpp>
 
 #include <tmx/data.hpp>
 #include <tmx/properties.hpp>
+#include <tmx/abstractLayer.hpp>
 
 namespace tmx
 {
@@ -44,7 +45,7 @@ namespace tmx
 /// \brief Map layer containing data
 ///
 ///////////////////////////////////////////////////////////////////////////
-class Layer
+class Layer : public AbstractLayer
 {
 public:
 
@@ -161,7 +162,7 @@ private:
     
 };
     
-using Layers = std::vector<Layer>;
+using Layers = std::list<Layer>;
 
 } // namespace tmx
 

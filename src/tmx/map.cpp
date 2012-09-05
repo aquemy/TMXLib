@@ -95,13 +95,20 @@ void Map::load(std::string path)
         else if(cat->first == "tileset")
             tilesets.push_back(Tileset(cat->second));
         else if(cat->first == "imagelayer")
+        {
             imagelayers.push_back(Imagelayer(cat->second));
+            push_back(&imagelayers.back());
+        }
         else if(cat->first == "layer")
-            push_back(Layer(cat->second));
+        {
+            layers.push_back(Layer(cat->second));
+            push_back(&layers.back());
+        }
         else if(cat->first == "objectgroup")
+        {
             objectgroups.push_back(Objectgroup(cat->second));
-        else if(cat->first == "imagelayer")
-            ;
+            push_back(&objectgroups.back());
+        }
         else
             throw std::runtime_error("Unknow subsection in Map");
     }
@@ -150,6 +157,12 @@ Tilesets Map::getTilesets() const
 }      
 
 ///////////////////////////////////////////////////////////////////////////       
+Layers Map::getLayers() const
+{
+    return layers;
+}   
+
+///////////////////////////////////////////////////////////////////////////       
 Imagelayers Map::getImagelayers() const
 {
     return imagelayers;
@@ -180,12 +193,9 @@ void Map::dump() const
         properties.dump();
     for(auto tileset : tilesets)
         tileset.dump();
-    for(auto imagelayer : imagelayers)
-        imagelayer.dump();
     for(auto layer : *this)
-        layer.dump();
-    for(auto objectgroup : objectgroups)
-        objectgroup.dump();
+        layer->dump();
+
 }
 
 } // namespace tmx

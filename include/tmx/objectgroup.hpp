@@ -31,11 +31,12 @@
 // Headers
 ///////////////////////////////////////////////////////////////////////////
 
-#include <vector>
+#include <list>
 
 #include <boost/property_tree/ptree.hpp>
 
 #include <tmx/object.hpp>
+#include <tmx/abstractLayer.hpp>
 
 namespace tmx
 {
@@ -43,7 +44,7 @@ namespace tmx
 /// \brief Objectgroups contain objects that share properties
 ///
 ///////////////////////////////////////////////////////////////////////////
-class Objectgroup : std::vector<Object>
+class Objectgroup : public AbstractLayer, public std::vector<Object>
 {
 public:
 
@@ -133,7 +134,7 @@ private:
     
 };
 
-using Objectgroups = std::vector<Objectgroup>;
+using Objectgroups = std::list<Objectgroup>;
 
 } // namespace tmx
 

@@ -37,6 +37,7 @@
 #include <tmx/layer.hpp>
 #include <tmx/imagelayer.hpp>
 #include <tmx/objectgroup.hpp>
+#include <tmx/abstractLayer.hpp>
 
 namespace tmx
 {
@@ -44,7 +45,7 @@ namespace tmx
 /// \brief Main class to manipulate maps from TMX
 ///
 ///////////////////////////////////////////////////////////////////////////
-class Map : public std::vector<Layer>
+class Map : public std::vector<AbstractLayer*>
 {
 public :
 
@@ -131,6 +132,14 @@ public :
     Tilesets getTilesets() const;
     
     ///////////////////////////////////////////////////////////////////////////
+    /// \brief Get the layers
+    ///
+    /// \return Layers
+    ///
+    /////////////////////////////////////////////////////////////////////////// 
+    Layers getLayers() const;
+    
+    ///////////////////////////////////////////////////////////////////////////
     /// \brief Get the image layers
     ///
     /// \return Imagelayers
@@ -172,6 +181,7 @@ private :
     int tilewidth = 0;                                 ///< Width of a tile
     int tileheight = 0;                                ///< Height of a tile
     Tilesets tilesets;                                 ///< Tilesets of the map
+    Layers layers;                                     ///< Layers of the map
     Imagelayers imagelayers;                           ///< Imagelayers of the map
     Objectgroups objectgroups;                         ///< Objectgroups of the map
     Properties properties;                             ///< Properties of the map

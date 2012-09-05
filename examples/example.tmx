@@ -38,6 +38,12 @@
    H4sIAAAAAAAAA83MQ3OeAQCF0S9N7TZJbaxqI01trGojtdvU5qo2Upur2kxtrGojtTnTM5P3R/TOnLm7JxT6/xcXFgoNYzgjGMkoRjOGsYxjPBOYyCQmM4WpTGN6WFIv3q9gJatYzRrWso71bGAjm9jMFrayje3sYGfQO+VPk8AZznKO81zgIpe4zBWuco3r3OAmt7gd9BL9G97yjvd84COf+MwXvvKN7/zgJ7/4zR/+Br2IZKFQJFFkIzs5yEkucpOHvOQjPwUoSCEKU4SiyZJ60b4aMVSnBjWpRW3qUJd61KcBDWlEY5rQlGZBL9Z3pwc96UVv+tCXfvRnAAMZxGCGMJQ4hjE86M3wM5nFbOYwl3nMZwELWcRilrCUZSwnnhWsDHq7/G72sJd97OcABznEYY5wlGMc5wQnOcVpEoLeHX+Xe9znAQ95xGOe8JRnPOcFL3nFaxJ5w9ugFx4eCiUnBSlJRWrSkJZ0pCcDGclEZrKQlQgiiQpP6hXzxSlBSUpRmjKUpRzlqUBFKlGZKlQlmmrEBL3mvgUtaUVr2tCWdrSnAx3pRGe60JVuxNKdHvwDwPciarAEAAA=
   </data>
  </layer>
+ <imagelayer name="Image Layer 1" width="20" height="15">
+  <image source="../../../images/wallpapers/2.png" trans="5aa443"/>
+  <properties>
+   <property name="sqfs" value="dfs"/>
+  </properties>
+ </imagelayer>
  <layer name="Calque 2" width="20" height="15" opacity="0.87">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAA2NgGAXEAGZWBgYWIGZlxa2GESjHhCaPrg+ZbwPEtnjMswTKWaHJW6PpQ+ePglFACBCTlkkBxKZBkL2U2g0ATVwm5bAEAAA=
@@ -68,5 +74,6 @@
    <polygon points="0,0 116,106 158,-47 8,-76"/>
   </object>
  </objectgroup>
- <imagelayer name="Image Layer 1" width="20" height="15"/>
+ <imagelayer name="Image Layer 2" width="20" height="15"/>
+ <imagelayer name="Image Layer 3" width="20" height="15"/>
 </map>

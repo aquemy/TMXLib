@@ -24,30 +24,29 @@
 //
 ///////////////////////////////////////////////////////////////////////////
 
-#ifndef TMX_LIB
-#define TMX_LIB
+#ifndef ABSTRACTLAYER_HPP
+#define ABSTRACTLAYER_HPP
 
 ///////////////////////////////////////////////////////////////////////////
 // Headers
 ///////////////////////////////////////////////////////////////////////////
 
-#include <tmx/abstractLayer.hpp>
-#include <tmx/compression.hpp>
-#include <tmx/data.hpp>
-#include <tmx/encoding.hpp>
-#include <tmx/layer.hpp>
-#include <tmx/imagelayer.hpp>
-#include <tmx/map.hpp>
-#include <tmx/object.hpp>
-#include <tmx/objectgroup.hpp>
-#include <tmx/orientation.hpp>
-#include <tmx/polygon.hpp>
-#include <tmx/polyline.hpp>
-#include <tmx/properties.hpp>
-#include <tmx/tile.hpp>
-#include <tmx/tileset.hpp>
-#include <tmx/utils.hpp>
-#include <tmx/point.hpp>
-#include <tmx/base64/base64.hpp>
+#include <vector>
+
+namespace tmx
+{
+///////////////////////////////////////////////////////////////////////////
+/// \brief Abstract map layer containing data
+///
+///////////////////////////////////////////////////////////////////////////
+class AbstractLayer
+{
+public :
+    virtual void dump() const = 0;
+};
+    
+using AbstractLayers = std::vector<AbstractLayer>;
+
+} // namespace tmx
 
 #endif

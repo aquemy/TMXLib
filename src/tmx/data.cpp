@@ -167,26 +167,19 @@ std::vector<Tile> Data::parseTilesFromBase64(const std::string str, const Compre
         text = DecompressZLIB(text);
         
     // Preparing the data
-    unsigned char data[text.size()];
-    memcpy(data, text.c_str(), text.size());
+    const size_t n = text.size();
+    unsigned char* data = new unsigned char[n];
+    memcpy(data, text.c_str(), n);
     
     unsigned id = 0;
-    bool flipped_horizontally = false;
-    bool flipped_vertically = false;
-    bool flipped_diagonally = false;
     
     // Parsing data to extract tiles
-    for (int i = 0; i < text.size(); i+=4) 
+    for (unsigned i = 0; i < n; i+=4) 
     {  
         id = data[i] |
              data[i + 1] << 8 |
              data[i + 2] << 16 |
              data[i + 3] << 24;
-                                  
-        // Read out the flags
-        flipped_horizontally = (id & FLIPPED_HORIZONTALLY_FLAG);
-        flipped_vertically = (id & FLIPPED_VERTICALLY_FLAG);
-        flipped_diagonally = (id & FLIPPED_DIAGONALLY_FLAG);
 
         // Clear the flags
         id &= ~(FLIPPED_HORIZONTALLY_FLAG |
@@ -195,6 +188,8 @@ std::vector<Tile> Data::parseTilesFromBase64(const std::string str, const Compre
 
         tiles.push_back(Tile(id));
     }
+    
+    delete data;
     
     return tiles;
 }    

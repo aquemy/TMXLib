@@ -31,12 +31,13 @@
 // Headers
 ///////////////////////////////////////////////////////////////////////////
 
-#include <vector>
+#include <list>
 
 #include <boost/property_tree/ptree.hpp>
 
 #include <tmx/properties.hpp>
 #include <tmx/image.hpp>
+#include <tmx/abstractLayer.hpp>
 
 namespace tmx
 {
@@ -44,7 +45,7 @@ namespace tmx
 /// \brief A class that stores Imagelayer description
 ///
 ///////////////////////////////////////////////////////////////////////////
-class Imagelayer
+class Imagelayer : public AbstractLayer
 {
 public:
 
@@ -117,7 +118,7 @@ private:
     
 };
     
-using Imagelayers =  std::vector<Imagelayer>;
+using Imagelayers =  std::list<Imagelayer>;
 
 } // namespace tmx
 
