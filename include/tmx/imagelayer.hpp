@@ -111,8 +111,8 @@ private:
     // Member data
     ///////////////////////////////////////////////////////////////////////////
     std::string name;      ///< Name of the Imagelayer
-    int width = 0;     ///< Width of a tile
-    int height = 0;    ///< Height of a tile
+    int width = 0;         ///< Width of a tile
+    int height = 0;        ///< Height of a tile
     Image image;           ///< Image of the Imagelayer
     Properties properties; ///< Properties of the Imagelayer
     

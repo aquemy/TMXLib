@@ -58,8 +58,8 @@ int main(void)
         
         // For the instance, we use only the first layer. 
         // Each tile is represented by its Id on the tileset.
-        /*for(int i = 0; i < myMap.width*myMap.height; i++)
-            myMap.layer.push_back(map[0].getData()[i].getId());*/
+        for(unsigned i = 0; i < myMap.width*myMap.height; i++)
+            myMap.layer.push_back(map.getLayers().front().getData()[i].getId());
 
         // Let's draw our map on the screen with our powerful drawing function !
         draw(myMap);
@@ -73,9 +73,9 @@ int main(void)
 
 void draw(MyMap map)
 {
-    for(int i = 0; i < map.width; i++)
+    for(unsigned i = 0; i < map.width; i++)
     {
-        for(int j = 0; j < map.height; j++)
+        for(unsigned j = 0; j < map.height; j++)
         {
             cout << setw(4) << map.layer[i+j*map.height] << " ";
         }

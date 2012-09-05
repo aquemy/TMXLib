@@ -41,9 +41,9 @@ int main(void)
         Map map("example.tmx");
         
         // Let's try to iterate trough our map and layers
-        /*for(auto layer : map)
+        for(auto layer : map.getLayers())
             for(auto tile : layer.getData())
-                cout << setw(4) << tile.getId() << " ";*/
+                cout << setw(4) << tile.getId() << " ";
                 
         cout << endl;
     }
