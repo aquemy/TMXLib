@@ -48,6 +48,19 @@ Map::Map(std::string path)
 }
 
 ///////////////////////////////////////////////////////////////////////////
+Map::~Map()
+{
+    for(auto it = std::begin(imagelayers); it < std::end(imagelayers); it++)
+        delete *it;
+        
+    for(auto it = std::begin(layers); it < std::end(layers); it++)
+        delete *it;
+        
+    for(auto it = std::begin(objectgroups); it < std::end(objectgroups); it++)
+        delete *it;
+}
+
+///////////////////////////////////////////////////////////////////////////
 void Map::load(std::string path)
 {
     // Opening TMX file
@@ -96,18 +109,18 @@ void Map::load(std::string path)
             tilesets.push_back(Tileset(cat->second));
         else if(cat->first == "imagelayer")
         {
-            imagelayers.push_back(Imagelayer(cat->second));
-            push_back(&imagelayers.back());
+            imagelayers.push_back(new Imagelayer(cat->second));
+            push_back(imagelayers.back());
         }
         else if(cat->first == "layer")
         {
-            layers.push_back(Layer(cat->second));
-            push_back(&layers.back());
+            layers.push_back(new Layer(cat->second));
+            push_back(layers.back());
         }
         else if(cat->first == "objectgroup")
         {
-            objectgroups.push_back(Objectgroup(cat->second));
-            push_back(&objectgroups.back());
+            objectgroups.push_back(new Objectgroup(cat->second));
+            push_back(objectgroups.back());
         }
         else
             throw std::runtime_error("Unknow subsection in Map");

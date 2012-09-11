@@ -59,7 +59,7 @@ int main(void)
         // For the instance, we use only the first layer. 
         // Each tile is represented by its Id on the tileset.
         for(unsigned i = 0; i < myMap.width*myMap.height; i++)
-            myMap.layer.push_back(map.getLayers().front().getData()[i].getId());
+            myMap.layer.push_back(map.getLayers()[0]->getData()[i].getId());
 
         // Let's draw our map on the screen with our powerful drawing function !
         draw(myMap);

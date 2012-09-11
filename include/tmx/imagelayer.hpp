@@ -31,7 +31,7 @@
 // Headers
 ///////////////////////////////////////////////////////////////////////////
 
-#include <list>
+#include <vector>
 
 #include <boost/property_tree/ptree.hpp>
 
@@ -118,7 +118,7 @@ private:
     
 };
     
-using Imagelayers =  std::list<Imagelayer>;
+using Imagelayers =  std::vector<Imagelayer*>;
 
 } // namespace tmx
 

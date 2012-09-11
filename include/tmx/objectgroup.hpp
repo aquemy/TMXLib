@@ -31,7 +31,7 @@
 // Headers
 ///////////////////////////////////////////////////////////////////////////
 
-#include <list>
+#include <vector>
 
 #include <boost/property_tree/ptree.hpp>
 
@@ -134,7 +134,7 @@ private:
     
 };
 
-using Objectgroups = std::list<Objectgroup>;
+using Objectgroups = std::vector<Objectgroup*>;
 
 } // namespace tmx
 

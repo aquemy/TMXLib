@@ -42,7 +42,7 @@ int main(void)
         
         // Let's try to iterate trough our map and layers
         for(auto layer : map.getLayers())
-            for(auto tile : layer.getData())
+            for(auto tile : layer->getData())
                 cout << setw(4) << tile.getId() << " ";
                 
         cout << endl;
