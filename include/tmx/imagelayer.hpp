@@ -118,7 +118,7 @@ private:
     
 };
     
-using Imagelayers =  std::vector<Imagelayer*>;
+using Imagelayers =  std::vector<const Imagelayer*>;
 
 } // namespace tmx
 

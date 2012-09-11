@@ -134,7 +134,7 @@ private:
     
 };
 
-using Objectgroups = std::vector<Objectgroup*>;
+using Objectgroups = std::vector<const Objectgroup*>;
 
 } // namespace tmx
 

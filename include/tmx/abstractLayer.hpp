@@ -55,7 +55,7 @@ public :
     virtual void dump() const = 0;
 };
     
-using AbstractLayers = std::vector<AbstractLayer*>;
+using AbstractLayers = std::vector<const AbstractLayer*>;
 
 } // namespace tmx
 

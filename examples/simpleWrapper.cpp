@@ -34,19 +34,21 @@
 using namespace std;
 using namespace tmx;
 
+// We define a map...
 typedef struct {
     unsigned width;
     unsigned height;
     vector<int> layer;
 } MyMap;
 
+// ... and how to draw it on screen
 void draw(MyMap);
 
 int main(void)
 {
     try
     {
-        // We load a Map thanks to tmx
+        // We load a Map thanks to tmxlib
         Map map("example.tmx");
         
         // We create our own (basic map)

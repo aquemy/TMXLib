@@ -13,5 +13,5 @@ Well, let's sum up : const-correctness, abstract parser (in order to avoid boost
 * Features
 -> Wrappers for SFML and (maybe) SDL
 -> Multithread loading
--> Type-erasure for layers, objectgroups and imagelayer to conserv order
+
 

@@ -162,7 +162,7 @@ private:
     
 };
     
-using Layers = std::vector<Layer*>;
+using Layers = std::vector<const Layer*>;
 
 } // namespace tmx
 
