@@ -29,6 +29,7 @@
 ///////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
+#include <string>
 
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>
@@ -57,11 +58,11 @@ Image::Image(const boost::property_tree::ptree &pt)
                     if(attr->first == "source")
                         source = attr->second.data();
                     else if(attr->first == "trans")
-                         trans = attr->second.data();
+                        trans = attr->second.data();
                     else if(attr->first == "width")
-                        std::istringstream(attr->second.data()) >> width;
+                        width = std::stoi(attr->second.data());
                     else if(attr->first == "height")
-                        std::istringstream(attr->second.data()) >> height;
+                        height = std::stoi(attr->second.data());
                     else
                         throw std::runtime_error("Unknow attribut in Image");  
                 }

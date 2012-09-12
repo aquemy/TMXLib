@@ -29,6 +29,7 @@
 ///////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
+#include <string>
 #include <vector>
 #include <sstream>
 #include <boost/lexical_cast.hpp>
@@ -65,7 +66,6 @@ void Map::load(std::string path)
 {
     // Opening TMX file
     ptree pt;
-    
     read_xml(path, pt);
 
     ptree::const_iterator child = pt.begin();
@@ -91,13 +91,13 @@ void Map::load(std::string path)
                         else
                             throw "Unknow orientation";
                     else if(attr->first == "width")
-                        std::istringstream(attr->second.data()) >> width;
+                        width = std::stoi(attr->second.data());
                     else if(attr->first == "height")
-                        std::istringstream(attr->second.data()) >> height;
+                        height = std::stoi(attr->second.data());
                     else if(attr->first == "tilewidth")
-                        std::istringstream(attr->second.data()) >> tilewidth;
+                        tilewidth = std::stoi(attr->second.data());
                     else if(attr->first == "tileheight")
-                        std::istringstream(attr->second.data()) >> tileheight;
+                        tileheight = std::stoi(attr->second.data());
                     else
                         throw std::runtime_error("Unknow attribut in Map");
                 }

@@ -30,6 +30,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <string>
 
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>
@@ -60,7 +61,7 @@ Tile::Tile(const boost::property_tree::ptree &pt)
                 if(!attr->second.data().empty())
                 {
                     if(attr->first == "gid" || attr->first == "id")
-                        std::istringstream(attr->second.data()) >> id;
+                        id = std::stoi(attr->second.data());
                     else
                         throw "Unknow attribut in Tile";
                 }

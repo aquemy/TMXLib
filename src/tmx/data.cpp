@@ -130,7 +130,7 @@ std::vector<Tile> Data::parseTilesFromCSV(const std::string str)
     
     while (std::getline(ss, buf, ',')) 
     {
-        std::istringstream(buf) >> id;
+        id = std::stoi(buf);
         tiles.push_back(Tile(id));
     }
     

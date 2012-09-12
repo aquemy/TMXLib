@@ -29,6 +29,7 @@
 ///////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
+#include <string>
 
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>
@@ -56,14 +57,12 @@ Objectgroup::Objectgroup(const boost::property_tree::ptree &pt)
                 {
                     if(attr->first == "name")
                         name = attr->second.data();
-                    else if(attr->first == "color")
-                        std::istringstream(attr->second.data()) >> color;
                     else if(attr->first == "width")
-                        std::istringstream(attr->second.data()) >> width;
+                        width = std::stoi(attr->second.data());
                     else if(attr->first == "height")
-                        std::istringstream(attr->second.data()) >> height;
+                        height = std::stoi(attr->second.data());
                     else if(attr->first == "opacity")
-                        std::istringstream(attr->second.data()) >> opacity;
+                        opacity = std::stof(attr->second.data());
                     else if(attr->first == "color")
                         std::istringstream(attr->second.data()) >> color;
                     else

@@ -29,6 +29,7 @@
 ///////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
+#include <string>
 
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>
@@ -59,15 +60,15 @@ Tileset::Tileset(const boost::property_tree::ptree &pt)
                     else if(attr->first == "name")
                         name = attr->second.data();
                     else if(attr->first == "firstgid")
-                        std::istringstream(attr->second.data()) >> firstgid;
+                        firstgid = std::stoi(attr->second.data());
                     else if(attr->first == "tilewidth")
-                        std::istringstream(attr->second.data()) >> tilewidth;
+                        tilewidth = std::stoi(attr->second.data());
                     else if(attr->first == "tileheight")
-                        std::istringstream(attr->second.data()) >> tileheight;
+                        tileheight = std::stoi(attr->second.data());
                     else if(attr->first == "spacing")
-                        std::istringstream(attr->second.data()) >> spacing;
+                        spacing = std::stoi(attr->second.data());
                     else if(attr->first == "margin")
-                        std::istringstream(attr->second.data()) >> margin;
+                        margin = std::stoi(attr->second.data());
                     else
                         throw "Unknow attribut in Tileset";
                 }
