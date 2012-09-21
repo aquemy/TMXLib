@@ -20,3 +20,7 @@ execute_process(
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
     ${CMAKE_CURRENT_SOURCE_DIR}/example.tmx
     ${CMAKE_CURRENT_BINARY_DIR}/example.tmx)
+    
+if(SFML_EXAMPLE)
+    add_subdirectory(SFML)
+endif()
