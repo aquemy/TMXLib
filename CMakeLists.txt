@@ -71,7 +71,7 @@ add_subdirectory(doc)
 ### 5) Installation
 ######################################################################################
 
-install(DIRECTORY include DESTINATION local COMPONENT headers)
+install(DIRECTORY include/tmx DESTINATION include COMPONENT headers)
 
 ######################################################################################
 ### 6) Packaging : only in release !

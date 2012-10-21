@@ -11,7 +11,7 @@ if(DOXYGEN_FOUND)
                    "${CMAKE_BINARY_DIR}/doc/${DOC_CONFIG_FILE}")
     install(
         DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-        DESTINATION local/share/tmx COMPONENT doc
+        DESTINATION share/tmx COMPONENT doc
         PATTERN "CMakeFiles" EXCLUDE
         PATTERN "cmake_install.cmake" EXCLUDE
         PATTERN "CTestTestfile.cmake" EXCLUDE

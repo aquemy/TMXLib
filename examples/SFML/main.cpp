@@ -15,6 +15,9 @@ int main(int argc, char *argv[])
     try
     {
         // Load the map
+        if(!argv[1])
+            throw std::runtime_error("Specify a path to a tmx file with the standard input");
+
         tmx::Map map(argv[1]);
         
         // Define visibility vector and create the map

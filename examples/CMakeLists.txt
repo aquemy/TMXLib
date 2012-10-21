@@ -20,6 +20,13 @@ execute_process(
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
     ${CMAKE_CURRENT_SOURCE_DIR}/example.tmx
     ${CMAKE_CURRENT_BINARY_DIR}/example.tmx)
+
+install(TARGETS firstExample RUNTIME DESTINATION share/tmx/examples COMPONENT examples)
+install(TARGETS iterates  RUNTIME DESTINATION share/tmx/examples COMPONENT examples)
+install(TARGETS simpleWrapper RUNTIME DESTINATION share/tmx/examples COMPONENT examples)
+
+install(FILES example.tmx DESTINATION share/tmx/examples COMPONENT examples)
+install(FILES example.tsx DESTINATION share/tmx/examples COMPONENT examples)
     
 if(SFML_EXAMPLE)
     add_subdirectory(SFML)

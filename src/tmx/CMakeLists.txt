@@ -25,4 +25,4 @@ set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/lib)
 
 add_library(tmx STATIC ${TMX_SRC})
 
-install(TARGETS tmx ARCHIVE DESTINATION local/${LIB} COMPONENT libraries)
+install(TARGETS tmx ARCHIVE DESTINATION ${LIB} COMPONENT libraries)

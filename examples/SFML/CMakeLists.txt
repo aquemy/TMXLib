@@ -60,3 +60,7 @@ execute_process(
     COMMAND ${CMAKE_COMMAND} -E copy_directory
     ${CMAKE_CURRENT_SOURCE_DIR}/ressource
     ${CMAKE_CURRENT_BINARY_DIR}/ressource)
+
+install(TARGETS tmxExample RUNTIME DESTINATION share/tmx/examples/SFML COMPONENT examples)
+
+install(DIRECTORY ressource DESTINATION share/tmx/examples/SFML COMPONENT examples)
