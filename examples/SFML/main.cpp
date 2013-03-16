@@ -1,3 +1,4 @@
+#include <iostream>
 #include <SFML/Graphics.hpp>
 #include <tmx/map.hpp>
 #include "src/map.cpp"

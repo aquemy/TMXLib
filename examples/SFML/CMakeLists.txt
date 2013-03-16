@@ -18,6 +18,11 @@ set(VERSION_PATCH 0)
 find_package(SFML REQUIRED)
 include_directories(${SFML_INCLUDE_DIR})
 
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/module")
+message(${CMAKE_MODULE_PATH})
+find_package(TMX REQUIRED)
+include_directories(${TMX_INCLUDE_DIR})
+
 
 ######################################################################################
 ### ) Define general CXX flags for DEBUG and RELEASE
@@ -29,8 +34,8 @@ else(DEBUG)
   set(CMAKE_BUILD_TYPE "Release" CACHE STRING "" FORCE)
 endif(DEBUG)
 
-set(CMAKE_CXX_FLAGS_DEBUG  "${CMAKE_CXX_FLAGS_DEBUG} -lsfml-graphics -lsfml-window -lsfml-system")
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -lsfml-graphics -lsfml-window -lsfml-system")
+set(CMAKE_CXX_FLAGS_DEBUG  "${CMAKE_CXX_FLAGS_DEBUG} -lsfml-graphics -lsfml-window -lsfml-system -std=c++11")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -lsfml-graphics -lsfml-window -lsfml-system -std=c++11")
 
 ######################################################################################
 ### 4) Define and add paths
@@ -53,7 +58,7 @@ add_executable(tmxExample ${SRC})
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR})
 
 # Link tmxExample to TMX
-target_link_libraries(tmxExample tmx)
+target_link_libraries(tmxExample ${TMX_LIBRARIES})
 
 # Copying files
 execute_process(
